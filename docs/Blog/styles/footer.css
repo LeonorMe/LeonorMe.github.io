@@ -1,0 +1,26 @@
+footer{
+    border-top: 2px solid var(--primary);
+    margin: 20vh 0 0 0;
+    padding: 1em 0;
+}
+
+footer .links{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+footer a{
+    color: var(--light);
+    text-decoration: underline;
+}
+
+footer a:hover{
+    color: var(--primary);
+}
+
+footer p{
+    color: var(--quaternary);
+}

@@ -1,5 +1,5 @@
 @import url(header.css);
-/*@import url(footer.css);*/
+@import url(footer.css);
 @import url(form.css);
 /*@import url(detail.css);*/
 @import url(index.css);
@@ -12,12 +12,14 @@
 
 
 :root{
-    --dark: #070707;
+    --dark: #111111;
     --light: #f5f0f0;
-    --primary: #45df12;
+    --primary: #abcf56;
     --secondary: #f3e370;
     --tertiary: #1b3439;
     --quaternary: #0e638e;
+
+    --boder-radius: 12px;
 }
 
 body{
@@ -29,6 +31,7 @@ body{
 
 
 h1{
-    color: var(--primary-color);
+    color: var(--primary);
     font-size: 1.5rem;
 }
+
