@@ -1,0 +1,62 @@
+img.logo {
+    height: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: block;
+    margin: 0;
+    padding: 20px 0px 0px 0px;
+}
+
+/*----- header ----*/
+
+header {
+    overflow: hidden;
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0px 40% 0px 6% ;
+    height: 80px;
+    align-items:center;
+}
+
+/* Style the header links */
+header a {
+    float: left;
+    color: var(--light);
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0px;
+}
+
+/* Change the background color on mouse-over */
+header a:hover {
+    text-decoration: underline;
+    color: var(--primary);
+}
+
+/* Style the active/current link*/
+header a.active {
+    color: var(--secondary);
+}
+
+.currentLink {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* Float the link section to the right */
+.header-right {
+    float: right;
+}

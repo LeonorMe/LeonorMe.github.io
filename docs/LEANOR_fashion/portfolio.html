@@ -6,25 +6,28 @@
         <title>Porfolio</title>
         <link rel="stylesheet" href="assets/styles/styles.css">
         <link rel="stylesheet" href="assets/styles/style_portfolio.css">
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+        </script>
+        <script> 
+        $(function(){
+            $(".header").load("header.html"); 
+            $(".footer").load("footer.html"); 
+        });
+        </script>
     </head>
     <body>
-        <header>
-            <a href="index.html" class="logo">
-                <img src="assets/images/LEANORA_logo_draft.png"
-                    alt="LEANORA logo"
-                    class="logo"
-                    srcset>
-            </a>
-            <div class="header-right">
-                <a href="colection.html">Last collection</a>
-                <a href="portfolio.html" class="currentLink">Portfolio</a>
-                <a href="about_me.html">About me</a>
-            </div>
-        </header>
+        <div class="header"></div>
         <main>
+            <div>
+                <img src="assets/images/base-pose-1.png" alt="Pose 1" style="width: 20vh;">
+                <img src="assets/images/base-pose-2.png" alt="Pose 2" style="width: 20vh;">
+                <img src="assets/images/base-pose-3.png" alt="Pose 3" style="width: 20vh;">
+            </div>
         </main>
-        <footer>
-            <p>&copy; 2024 Leonor Medeiros. All rights reserved.</p>
-        </footer>
+        <div class="footer"></div>
     </body>
 </html>

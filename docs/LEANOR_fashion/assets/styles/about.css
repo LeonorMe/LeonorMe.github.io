@@ -1,0 +1,27 @@
+/*About me page*/
+img.profile_pic {
+    width: 250px;
+    border-radius: 5%;
+}
+
+#aboutme {
+    padding: 30px;
+}
+
+p.socials {
+    float: right;
+}
+
+p.socials a {
+    padding: 5px;
+}
+
+div.about_me {
+    padding: 0px 0px 0px 25px;
+}
+
+
+.col3 {
+    float: left;
+    width: 75%;
+}

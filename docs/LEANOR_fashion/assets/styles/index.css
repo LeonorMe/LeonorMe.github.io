@@ -1,0 +1,76 @@
+/* Quote */
+.quote {
+    background-color: var(--darker);
+    color: var(--primary);
+    padding: 2% 5%;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    font-style: italic;
+    font: serif;
+    margin: 1% 20%;
+}
+
+
+/* Images in main page --------------*/
+
+#image-hover-inspiration {
+    width: 25%;
+    height: 600px;
+    background-image: url('../images/index/inspiration_black_snake_gold.png');
+    /*background-size: cover;  Cover the entire area of the element */
+    background-size: contain;
+    transition: background-image 0.0s ease-in-out;
+}
+
+#image-hover-inspiration:hover {
+    background-image: url('../images/index/text_inspiration.png');
+    background-size: contain;
+}
+
+#image-hover-draw {
+    width: 25%;
+    height: 600px;
+    background-image: url('../images/index/bag.png');
+    background-size: contain;
+    /* Cover the entire area of the element */
+    transition: background-image 0.2s ease-in-out;
+}
+
+#image-hover-draw:hover {
+    background-image: url('../images/index/text_scketching.png');
+    background-size: contain;
+}
+
+#image-hover-model {
+    width: 25%;
+    height: 600px;
+    background-image: url('../images/index/bag_mesh.png');
+    background-size: contain;
+    /* Cover the entire area of the element */
+    transition: background-image 0.3s ease-in-out;
+}
+
+#image-hover-model:hover {
+    background-image: url('../images/index/text_creating.png');
+    background-size: contain;
+}
+
+#image-hover-render {
+    width: 25%;
+    height: 600px;
+    background-image: url('../images/index/bag_render_21.png');
+    background-size: contain;
+    /* Cover the entire area of the element */
+    transition: background-image 0.4s ease-in-out;
+}
+
+#image-hover-render:hover {
+    background-image: url('../images/index/text_finalizing.png');
+    background-size: contain;
+}
+
+section article {
+    margin: 0px 0px;
+}
+

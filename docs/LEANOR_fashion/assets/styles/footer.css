@@ -1,0 +1,16 @@
+footer {
+    color: var(--primary);
+    margin: 0 100px;
+}
+
+.colL {
+    float: left;
+    text-align: left;
+    width: 50%;
+}
+
+.colR {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
