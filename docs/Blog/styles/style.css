@@ -1,0 +1,34 @@
+@import url(header.css);
+/*@import url(footer.css);*/
+@import url(form.css);
+/*@import url(detail.css);*/
+@import url(index.css);
+/*@import url(news.css);*/
+/*@import url(about.css);*/
+/*@import url(contact.css);*/
+/*@import url(login.css);*/
+/*@import url(manage.css);*/
+/*@import url(add.css);*/
+
+
+:root{
+    --dark: #070707;
+    --light: #f5f0f0;
+    --primary: #45df12;
+    --secondary: #f3e370;
+    --tertiary: #1b3439;
+    --quaternary: #0e638e;
+}
+
+body{
+    background-color: var(--dark);
+    color: var(--light);
+    margin: 0;
+    padding: 0 15%;
+}
+
+
+h1{
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}

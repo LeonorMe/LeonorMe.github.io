@@ -1,0 +1,40 @@
+form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 5%;
+    background-color: var(--dark);
+    border-radius: 12px;
+    color: var(--light);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+}
+
+form .input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--dark);
+    cursor: pointer;
+    font-weight: bold;
+}

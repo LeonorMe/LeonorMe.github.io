@@ -1,0 +1,46 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 5%;
+}
+
+.quote{
+    font-size: 1em;
+    font-style: italic;
+    color: var(--primary);
+}
+
+.last-post{
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+}
+
+.posts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+article{
+    padding: 5%;
+    background-color: var(--tertiary);
+    border-radius: 12px;
+    color: var(--light);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+article a{
+    color: var(--light);
+    text-decoration: underline;
+}
