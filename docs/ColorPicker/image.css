@@ -73,3 +73,7 @@ h2{
 .copy:hover{
     background-color: var(--secondary);
 }
+
+.copy-css:hover{
+    background-color: var(--primary);
+}

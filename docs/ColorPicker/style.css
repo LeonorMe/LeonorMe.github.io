@@ -3,7 +3,7 @@
 :root{
     --dark: rgb(27, 25, 25);
     --gray: rgb(235, 235, 235);
-    --light: rgb(235, 235, 235);
+    --light: rgb(248, 245, 245);
     --shadow: rgba(76, 34, 92, 0.49);
     --default: #a1d51c;
     --primary: coral;
@@ -20,12 +20,13 @@ body{
     align-items: center;
     justify-content: space-around;
     gap: 3vh;
+    background-color: var(--light);
 }
 
 .boxes {
     width: 500px;
     height: 200px;
-    background-color: var(--light);
+    background-color: var(--gray);
     border-radius: 12px;
     padding: 1% 2%;
     display: flex;
@@ -56,7 +57,7 @@ p{
 }
 
 .buttons button:hover{
-    transform: scale(1.1);
+    transform:scale(1.05);
 }
 
 button{
@@ -89,6 +90,7 @@ button{
     background-color: var(--gray);
     border-radius: 12px;
     padding: 1% 2%;
+    box-shadow: 0 4px 4px var(--shadow);
 }
 
 .footer-logo-fixed{
@@ -105,7 +107,7 @@ button{
 nav{
     display: flex;
     flex-direction: row;
-    background-color: var(--gray);
+    background-color: var(--light);
     padding: 3vh 5vw;
     border-radius: 0 0 12px 12px;
     box-shadow: 0px 4px 4px var(--shadow);
