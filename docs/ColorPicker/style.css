@@ -28,17 +28,18 @@ body{
     height: 200px;
     background-color: var(--gray);
     border-radius: 12px;
-    padding: 1% 2%;
+    padding: 1% 1.5%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     box-shadow: 2px 4px 4px var(--shadow);
+    gap: 0.7vw;
 }
 .color-box{
     width: 17%;
     height: 90%;
     background-color: var(--default);
-    color: black;
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
