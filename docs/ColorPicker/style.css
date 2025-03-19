@@ -1,27 +1,42 @@
+@import url(image.css);
+
+:root{
+    --dark: rgb(27, 25, 25);
+    --gray: rgb(235, 235, 235);
+    --light: rgb(235, 235, 235);
+    --shadow: rgba(76, 34, 92, 0.49);
+    --default: #a1d51c;
+    --primary: coral;
+    --secondary: #a1d51c;
+    --tertiary: rgb(149, 44, 6);
+}
+
 body{
     margin: 0;
-    padding: 10vh 20vw;
+    padding: 0vh 10vw 10vh 10vw;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    gap: 10px;
+    gap: 3vh;
 }
 
 .boxes {
     width: 500px;
     height: 200px;
-    background-color: rgb(235, 235, 235);
+    background-color: var(--light);
+    border-radius: 12px;
+    padding: 1% 2%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 2px 4px 4px rgba(76, 34, 92, 0.49);
+    box-shadow: 2px 4px 4px var(--shadow);
 }
 .color-box{
     width: 17%;
     height: 90%;
-    background-color: rgb(45, 245, 55);
+    background-color: var(--default);
     color: black;
     display: flex;
     flex-direction: column;
@@ -34,20 +49,30 @@ p{
     font-size: 0.8rem;
 }
 
-.buttons button{
-    padding: 10px 20px;
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.buttons button:hover{
+    transform: scale(1.1);
+}
+
+button{
+    padding: 7px 20px;
     font-size: 16px;
     border: 0;
-    border-radius: 20px;
-    box-shadow: 2px 4px 4px rgba(76, 34, 92, 0.49); /*inset*/
+    border-radius: 12px;
+    box-shadow: 2px 4px 4px var(--shadow); /*inset*/
 }
 
 .button-color-change{
-    background-color: coral;
+    background-color: var(--primary);
 }
 
 .button-color-save{
-    background-color:#a1d51c;
+    background-color: var(--secondary);
 }
 
 .saved{
@@ -61,7 +86,8 @@ p{
 }
 
 .pallet{
-    background-color: rgb(235, 235, 235);
+    background-color: var(--gray);
+    border-radius: 12px;
     padding: 1% 2%;
 }
 
@@ -74,4 +100,27 @@ p{
 .footer-logo-fixed img{
     width: 50px;
     height: 50px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--gray);
+    padding: 3vh 5vw;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0px 4px 4px var(--shadow);
+}
+
+a{
+    color: var(--dark);
+    margin: 0 10px;
+}
+
+a:hover{
+    color: var(--tertiary);
+}
+
+h1{
+    font-size: 1.5rem;
+    color: var(--dark);
 }
