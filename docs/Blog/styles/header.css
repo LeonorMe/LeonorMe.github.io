@@ -4,12 +4,14 @@ header {
     align-items: center;
     padding: 20px 0;
     border-bottom: 5px solid var(--primary);
+    gap: 10px;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -20,6 +22,7 @@ nav a {
 
 nav a:hover {
     color: var(--primary);
+    text-decoration: line-through;
 }
 
 .logo {

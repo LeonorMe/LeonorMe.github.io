@@ -5,7 +5,7 @@
 @import url(index.css);
 /*@import url(news.css);*/
 /*@import url(about.css);*/
-/*@import url(contact.css);*/
+@import url(contact.css);
 /*@import url(login.css);*/
 /*@import url(manage.css);*/
 /*@import url(add.css);*/
@@ -19,7 +19,7 @@
     --tertiary: #1b3439;
     --quaternary: #0e638e;
 
-    --boder-radius: 12px;
+    --radius: 12px;
 }
 
 body{

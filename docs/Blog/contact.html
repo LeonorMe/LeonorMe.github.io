@@ -16,33 +16,49 @@
             $("footer").load("footer.html"); 
         });
     </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body id="contact">
     <header></header>
 
-    <main>
-        <h1>Contact me</h1>
-        <p>Feel free to contact me</p>
+    <main class="row">
+        <div class="col">
+            <section class="img-composition">
+                <img class="imgC1" src="assets/01-frozen-water-drop.jpg" alt="image">
+                <img class="imgC2" src="assets/03-green-water-color.jpg" alt="image">
+                <img class="imgC3" src="assets/garça.jpg" alt="image">
+                <img class="imgC4" src="assets/model.png" alt="image">
+                <img class="imgC5" src="assets/cascata.jpg" alt="image">
+            </section>
+        </div>
 
-        <section class="contact-form">
-            <form action="" method="post">
-                <div class="input-group">
-                    <label for="name">Name*</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="input-group">
-                    <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label for="message">Message*</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Send</button>
-            </form>
-        </section>
+        <div class="col">
+            <div class="col-header">
+                <h1>Contact me</h1>
+                <p>Feel free to contact me via email here:</p>
+            </div>
+
+            <section class="contact-form">
+                <form action="" method="post">
+                    <div class="input-group">
+                        <label for="name">Name*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </div>
     </main>
-
+    
     <footer></footer>
 </body>
 </html>

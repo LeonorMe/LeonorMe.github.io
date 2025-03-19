@@ -1,0 +1,90 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 0.1vw;
+    margin-top: 5vh;
+}
+
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .col {
+        width: 90vw;
+        height: auto;
+    }
+
+    .img-composition img {
+        width: 60%;
+    }
+}
+
+.col{
+    width: 33vw;
+    height: 80vh;
+}
+
+.col-header{
+    width: 100%;
+    /*border: 1px var(--primary) solid;*/
+}
+
+.col h1{
+    width: 100%;
+    margin-top: 0;
+}
+
+.col form{
+    align-items: start;
+}
+
+.img-composition{
+    width: 100%;
+    height:100%;
+    position: relative;
+    /*border: 2px solid var(--primary);*/
+}
+
+.img-composition img{
+    width: 40%;
+}
+
+.img-composition img:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    transition: 0.2s ease-in-out;
+}
+
+.img-composition .imgC1{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.img-composition .imgC2 {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}
+
+.img-composition .imgC3 {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+}
+
+.img-composition .imgC4 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.img-composition .imgC5 {
+    position: absolute;
+    top: 55%;
+    left: 20%;
+}
