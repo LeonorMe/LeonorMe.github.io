@@ -29,7 +29,7 @@ article{
     
 }
 
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1600px){
     article{
         flex-direction: column;
     }
@@ -63,10 +63,10 @@ h2{
     height: 50px;
     border-radius: 12px;
     font-size: smaller;
-    padding: 0.3rem;
+    padding: 0.3rem 0.6rem;
 }
 
-.copy{
+.copy, .copy-css{
     background-color: var(--light);
 }
 

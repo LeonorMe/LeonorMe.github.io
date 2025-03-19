@@ -53,8 +53,14 @@ p{
 .buttons{
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
+
+#index .buttons{
+    gap: 2rem;
+} 
+
 
 .buttons button:hover{
     transform:scale(1.05);
