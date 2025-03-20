@@ -10,7 +10,6 @@
 /*@import url(manage.css);*/
 /*@import url(add.css);*/
 
-
 :root{
     --dark: #0e120e;
     --light: #e5e9d8;
@@ -18,9 +17,32 @@
     --secondary: #927f1c;
     --tertiary: #1a220e; /*#1b3439;*/
     --quaternary: #222b15;
-
+    
     --radius: 12px;
 }
+    
+/*
+:root {
+    --c0: #061907;
+    --c1: #4c653e;
+    --c2: #7b8455;
+    --c3: #438255;
+    --c4: #1f8e7c;
+    --c5: #758b7e;
+    --c6: #1d5c6e;
+    --c7: #45678d;
+    --c8: #9b8464;
+    --c9: #c6cea8;
+
+    --dark: var(--c0);
+    --light: var(--c9);
+    --primary: var(--c1);
+    --secondary: var(--c6);
+    --tertiary: var(--c2);
+    --quaternary: var(--c5);
+
+    --radius: 12px;
+}*/
 
 body{
     background-color: var(--dark);
