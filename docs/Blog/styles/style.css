@@ -12,12 +12,12 @@
 
 
 :root{
-    --dark: #111111;
-    --light: #f5f0f0;
-    --primary: #abcf56;
-    --secondary: #f3e370;
-    --tertiary: #1b3439;
-    --quaternary: #0e638e;
+    --dark: #0e120e;
+    --light: #e5e9d8;
+    --primary: #93a462; /*#abcf56;*/
+    --secondary: #927f1c;
+    --tertiary: #1a220e; /*#1b3439;*/
+    --quaternary: #222b15;
 
     --radius: 12px;
 }
