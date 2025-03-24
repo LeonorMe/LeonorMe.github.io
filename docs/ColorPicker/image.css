@@ -42,7 +42,7 @@ article{
 
 img{
     width: 100%;
-    border-radius: 12px;
+    border-radius: var(--radius);
 }
 
 h2{
@@ -60,7 +60,7 @@ h2{
 .color-box{
     width: 50px;
     height: 50px;
-    border-radius: 12px;
+    border-radius: var(--radius);
     font-size: smaller;
     padding: 0.3rem 0.6rem;
 }

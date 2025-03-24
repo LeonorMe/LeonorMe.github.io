@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body id="upload">
+
+    <nav>
+        <a href="index.html">Color pallet generator</a>
+        <a href="image.html">Image pallets</a>
+        <a href="upload.html">Use your image</a>
+    </nav>
+
+    <h1>Use your image - upload</h1>
+
+    <div class="hero">
+        <label for="input-file" id="drop-area">
+            <input type="file" accept="image/*" id="input-file" hidden>
+            <div id="img-view">
+                <ion-icon name="cloud-upload" size="large"></ion-icon>
+                <p>Drag and drop or click here<br>to upload image</p>
+                <span>Upload any images from desktop</span>
+            </div>
+        </label>
+        <div id="result">
+            <div id="img-zone">
+                <img src="" alt="" id="uploaded-img">
+            </div>
+            <div id="colors-zone">
+                <div>.</div>
+                <div>.</div>
+                <div>.</div>
+                <div>.</div>
+                <div>.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-logo-fixed">
+        <a href="../index.html">
+        <img src="../logo.png" alt="LM-logo">
+        </a>
+    </div>
+
+    <script src="upload.js"></script>
+</body>
+</html>

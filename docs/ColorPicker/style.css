@@ -1,4 +1,5 @@
 @import url(image.css);
+@import url(upload.css);
 
 :root{
     --dark: rgb(27, 25, 25);
@@ -9,25 +10,28 @@
     --primary: coral;
     --secondary: #a1d51c;
     --tertiary: rgb(149, 44, 6);
+
+    --radius: 12px;
 }
 
 body{
+    min-height: 90vh;
     margin: 0;
     padding: 0vh 10vw 10vh 10vw;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
     gap: 3vh;
-    background-color: var(--light);
+    background: linear-gradient(var(--light), var(--gray));
 }
 
 .boxes {
     width: 500px;
     height: 200px;
     background-color: var(--gray);
-    border-radius: 12px;
+    border-radius: var(--radius);
     padding: 1% 1.5%;
     display: flex;
     justify-content: space-around;
@@ -71,7 +75,7 @@ button{
     padding: 7px 20px;
     font-size: 16px;
     border: 0;
-    border-radius: 12px;
+    border-radius: var(--radius);
     box-shadow: 2px 4px 4px var(--shadow); /*inset*/
 }
 
@@ -95,7 +99,7 @@ button{
 
 .pallet{
     background-color: var(--gray);
-    border-radius: 12px;
+    border-radius: var(--radius);
     padding: 1% 2%;
     box-shadow: 0 4px 4px var(--shadow);
 }
