@@ -19,27 +19,30 @@
         });
     </script>
 </head>
-<body id="contact">
+<body id="login">
     <header></header>
 
     <main>
         <h1>Login</h1>
 
         <section class="contact-form">
-            <form action="" method="post">
+            <p id="login-error-message"></p>
+            <form action="" method="post" id="login-form">
                 <div class="input-group">
-                    <label for="name">Name/Email*</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name">Name*</label>
+                    <input type="text" id="login-name" name="name" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password*</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="login-password" name="password" required>
                 </div>
-                <button type="submit">Send</button>
+                <button type="submit">Login</button>
             </form>
         </section>
     </main>
 
     <footer></footer>
+
+    <script src="login.js"></script>
 </body>
 </html>

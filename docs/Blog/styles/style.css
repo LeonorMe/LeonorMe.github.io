@@ -4,7 +4,7 @@
 /*@import url(detail.css);*/
 @import url(index.css);
 /*@import url(news.css);*/
-/*@import url(about.css);*/
+@import url(about.css);
 @import url(contact.css);
 /*@import url(login.css);*/
 /*@import url(manage.css);*/
@@ -57,3 +57,6 @@ h1{
     font-size: 1.5rem;
 }
 
+p, span{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -51,6 +51,7 @@
 
 .img-composition img{
     width: 40%;
+    border-radius: var(--radius);
 }
 
 .img-composition img:hover {
