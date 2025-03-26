@@ -1,15 +1,16 @@
 @import url(image.css);
 @import url(upload.css);
+@import url(contrast.css);
 
 :root{
-    --dark: rgb(27, 25, 25);
-    --gray: rgb(235, 235, 235);
-    --light: rgb(248, 245, 245);
-    --shadow: rgba(76, 34, 92, 0.49);
-    --default: #a1d51c;
-    --primary: coral;
-    --secondary: #a1d51c;
-    --tertiary: rgb(149, 44, 6);
+    --dark: #191919;
+    --gray: #ebebeb;
+    --light: #f5f5f5;
+    --shadow: #4c225c7d;
+    --default: #97c71f;
+    --primary: #e1693d;
+    --secondary: #97c71f;
+    --tertiary: #963613;
 
     --radius: 12px;
 }
@@ -118,10 +119,14 @@ button{
 nav{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     background-color: var(--light);
     padding: 3vh 5vw;
     border-radius: 0 0 12px 12px;
     box-shadow: 0px 4px 4px var(--shadow);
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 a{
@@ -136,4 +141,9 @@ a:hover{
 h1{
     font-size: 1.5rem;
     color: var(--dark);
+}
+
+footer{
+    margin-top: 15vh;
+    color: var(--secondary);
 }

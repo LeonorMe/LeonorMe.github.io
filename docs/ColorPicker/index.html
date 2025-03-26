@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Picker</title>
+    <title>Color Palette - generator</title>
     <link rel="stylesheet" href="style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script> 
+        $(function(){
+            $("header").load("header.html"); 
+            $("footer").load("footer.html"); 
+        });
+    </script>
 </head>
 <body id="index">
+    <header></header>
 
-    <nav>
-        <a href="index.html">Color pallet generator</a>
-        <a href="image.html">Image pallets</a>
-        <a href="upload.html">Use your image</a>
-    </nav>
-
-    <h1>Color pallet - generator</h1>
+    <h1>Color pallet generator</h1>
     <div class="boxes">
         <div class="color-box"></div>
         <div class="color-box"></div>
@@ -36,6 +42,8 @@
         <img src="../logo.png" alt="LM-logo">
         </a>
     </div>
+
+    <footer></footer>
 
     <script src="script.js"></script>
 </body>

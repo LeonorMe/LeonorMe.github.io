@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Picker</title>
+    <title>Color Palette - gallery</title>
     <link rel="stylesheet" href="style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script> 
+        $(function(){
+            $("header").load("header.html"); 
+            $("footer").load("footer.html"); 
+        });
+    </script>
 </head>
 <body id="image">
+    <header></header>
 
-    <nav>
-        <a href="index.html">Color pallet generator</a>
-        <a href="image.html">Image pallets</a>
-        <a href="upload.html">Use your image</a>
-    </nav>
-
-    <h1>Image pallets</h1>
+    <h1>Image pallet gallery</h1>
 
     <p><i>Because there's nothing better than letting your designs be inspired by the beautiful colors that surround you...</i></p>
 
@@ -286,6 +292,8 @@
         <img src="../logo.png" alt="LM-logo">
         </a>
     </div>
+
+    <footer></footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
