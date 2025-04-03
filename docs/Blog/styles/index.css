@@ -29,7 +29,7 @@ main {
 
 .last-post{
     width: 90%;
-    background-color: var(--tertiary);    
+    background-color: var(--quaternary);    
     border-radius: var(--radius);
     display: flex;
     flex-direction: row;
@@ -38,7 +38,7 @@ main {
 }
 
 .last-post:hover{
-    background-color: var(--quaternary);
+    background-color: var(--tertiary);
     transform: scale(1.05);
     transition: all 0.5s ease-in-out;
 }
@@ -59,23 +59,38 @@ main {
 .last-post h2{
     font-size: 1.5em;
     font-weight: bold;
-    color: var(--primary);
+    color: var(--secondary);
     margin: 0;
 }
 
+.last-post .post-header{
+    width: 100%;
+}
+
 .last-post .info{
+    width: 100%;
     font-size: 0.8em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: start;
-    gap: 1rem;
+    gap: 0rem 1rem;
+}
+
+.last-post .info p{
+    color: var(--tertiary);
+    margin: 0.1rem 0 1rem 0;
+}
+
+.last-post:hover .info p{
+    color: var(--quaternary);
 }
 
 .last-post p{
     font-size: 1.1em;
     font-weight: normal;
+    color: var(--light);
 }
 .last-post a{
     font-size: 1.1em;
@@ -87,9 +102,31 @@ main {
     border-radius: 5px;
 }
 
-.last-post .categories{
-    color: var(--secondary);
+.last-post:hover a{
+    color: var(--quaternary);
+    
 }
+
+.last-post a:hover{
+    color: var(--secondary);
+    background-color: var(--quaternary);
+    text-decoration: underline;
+}
+
+.last-post a:active{
+    text-decoration: line-through;
+}
+
+.last-post .info p.categories{
+    color: var(--primary);
+    font-variant: small-caps;
+}
+
+.last-post:hover .categories{
+    color: var(--quaternary);
+}
+
+/*----------*/
 
 .posts{
     display: flex;
@@ -103,7 +140,7 @@ main {
 article{
     width: 20%;
     padding: 5%;
-    background-color: var(--tertiary);
+    background-color: var(--quaternary);
     border-radius: var(--radius);
     color: var(--light);
     text-align: left;
@@ -118,18 +155,60 @@ article img{
     border-radius: var(--radius);
 }
 
+article h3{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--secondary);
+    margin: 0.8rem 0 0 0;
+}
+
 article a{
-    color: var(--light);
+    color: var(--secondary);
     text-decoration: underline;
 }
 
 article a:hover{
-    color: var(--tertiary);
+    color: var(--quaternary);
     text-decoration: line-through;
 }
 
+article a:active {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 article:hover{
-    background-color: var(--quaternary);
+    background-color: var(--tertiary);
     transform: scale(1.05);
     transition: all 0.5s ease-in-out;
+}
+
+article .info{
+    width: 100%;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+}
+
+article .info .categories{
+    color: var(--primary);
+    font-variant: small-caps;
+    margin-bottom: 0;
+}
+
+article .info .date{
+    color: var(--tertiary);
+    margin: 0;
+}
+
+article:hover .info .date{
+    color: var(--quaternary);
+    margin: 0.1rem 0 1rem 0;
+}
+
+article{
+    min-width: 250px;
 }

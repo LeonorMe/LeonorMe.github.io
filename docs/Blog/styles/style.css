@@ -11,12 +11,21 @@
 /*@import url(add.css);*/
 
 :root{
+    /*
     --dark: #0e120e;
     --light: #e5e9d8;
-    --primary: #93a462; /*#abcf56;*/
+    --primary: #93a462; /*#abcf56;*
     --secondary: #927f1c;
-    --tertiary: #1a220e; /*#1b3439;*/
+    --tertiary: #1a220e; /*#1b3439;*
     --quaternary: #222b15;
+    */
+
+    --dark: #050505;
+    --light: #eef0ea;
+    --primary: #bbd874;
+    --secondary: #ad8800;
+    --tertiary: #53771d;
+    --quaternary:  #2b2f1f;  
     
     --radius: 12px;
 }
