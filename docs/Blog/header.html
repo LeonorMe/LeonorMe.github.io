@@ -12,3 +12,21 @@
         </ul-->
     </nav>
 </div>
+
+<script src="utils.js"></script>
+<script>
+    if(isAuth()){
+        document.querySelector("nav").innerHTML += `
+            <button type="button" id="logout">Logout</button>
+            <a href="manage.html">Manage posts</a>
+            <a href="add.html">Add post</a>`;
+        document.querySelector("#logout").addEventListener("click", function() {
+            logout();
+            window.location.href = "index.html";
+        });
+    }
+    else {
+        document.querySelector("#logout").remove();
+    }
+    document.querySelector("header").style.display = "block";
+</script>
