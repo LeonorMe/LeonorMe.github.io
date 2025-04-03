@@ -19,14 +19,31 @@ form.addEventListener('submit', async (event) => {
             .then((txt) => txt.split("\r\n"));
 
         if(name===txt[0] && password===txt[1]){
-            window.location.href = "manage.html";
+            sessionStorage.setItem("AuthenticationState", "Authenticated");
+            //This authentication key will expire in 1 hour.
+            //sessionStorage.setItem("AuthenticationExpires", Date.now.addHours(1));
+            sessionStorage.setItem("AuthenticationExpires", 1*60*60*1000 + Date.now());
+            //Push the user over to the next page.
+            window.open('manage.html','_self');
+
+            //window.location.href = "manage.html";
         }
         else{
             error_message.innerHTML =
                 "<i>⚠️Invalid username or password.</i>";
             error_message.style.color = "var(--secondary)";
+
+            sessionStorage.removeItem("AuthenticationState");
+            sessionStorage.removeItem("AuthenticationExpires");
+
             return;
         }
     }
     
 });
+
+/*
+Date.prototype.addHours = function(h) {    
+    this.setTime(this.getTime() + (h*60*60*1000)); 
+    return this;   
+}*/

@@ -9,6 +9,7 @@
 /*@import url(login.css);*/
 /*@import url(manage.css);*/
 /*@import url(add.css);*/
+@import url(error.css);
 
 :root{
     /*
@@ -68,4 +69,8 @@ h1{
 
 p, span{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#login main {
+    margin-top: 5vh;
 }

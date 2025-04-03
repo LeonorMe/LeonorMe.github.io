@@ -1,0 +1,20 @@
+.error main h1{
+    margin-top: 5rem;
+}
+.error main p{
+    margin: 0;
+}
+
+.error main a{
+    color: var(--secondary);
+}
+
+.error main a:hover{
+    color: var(--tertiary);
+    text-decoration: line-through;
+}
+
+.error main a:active{
+    color: var(--primary);
+    text-decoration: underline;
+}
