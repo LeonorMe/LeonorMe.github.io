@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEANOR</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LEANOR</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous">
     </script>
-    <script> 
+        <script src="utils.js"></script>
+        <script>
+          
         $(function(){
             $("header").load("header.html"); 
             $("footer").load("footer.html"); 
         });
     </script>
 
-</head>
-<body id="index">
-    <header></header>
+    </head>
+    <body id="index">
+        <header></header>
 
-    <main>
-        <div class="intro">
-            <h1>Creativity blog</h1>
-            <p class="quote">"Let your hobbies make your day"</p>
-        </div>
-        <section class="last-post">
+        <main>
+            <div class="intro">
+                <h1>Creativity blog</h1>
+                <p class="quote">"Let your hobbies make your day"</p>
+            </div>
+            <section class="last-post">
                 <div class="image">
-                    <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
+                    <img src="assets/01-frozen-water-drop.jpg"
+                        alt="place-holder">
                 </div>
                 <div class="content">
                     <div class="post-header">
@@ -41,54 +44,69 @@
                         </div>
                     </div>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam vero omnis ipsam cum mollitia doloremque dignissimos possimus porro excepturi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, at? Nemo, asperiores harum. Quos aliquam perspiciatis eius veritatis, natus reprehenderit nihil necessitatibus culpa voluptatem non saepe deleniti omnis similique deserunt?
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Nam vero omnis ipsam cum mollitia doloremque
+                        dignissimos possimus porro excepturi.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Libero, at? Nemo, asperiores harum. Quos aliquam
+                        perspiciatis eius veritatis, natus reprehenderit nihil
+                        necessitatibus culpa voluptatem non saepe deleniti omnis
+                        similique deserunt?
                     </p>
                     <a href="detail.html">Read more</a>
                 </div>
-        </section>
-        <section class="posts">
-            <article>
-                <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
-                <div class="info">
-                    <p class="categories">Category</p>
-                </div>
-                <h3>Post title</h3>
-                <div class="info">
-                    <p class="date">18 march 2025</p>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam vero omnis ipsam cum mollitia doloremque dignissimos possimus porro excepturi.
-                </p>
-                <a href="detail.html">Read more</a>
-            </article>
-            <article>
-                <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
-                <div class="info">
-                    <p class="categories">Category</p>
-                </div>
-                <h3>Post title</h3>
-                <div class="info">
-                    <p class="date">18 march 2025</p>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam vero omnis ipsam cum mollitia doloremque dignissimos possimus porro excepturi.
-                </p>
-                <a href="detail.html">Read more</a>
-            </article>
-            <article>
-                <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
-                <div class="info">
-                    <p class="categories">Category</p>
-                    <p class="date">18 march 2025</p>
-                </div>
-                <h3>Post title</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam vero omnis ipsam cum mollitia doloremque dignissimos possimus porro excepturi.
-                </p>
-                <a href="detail.html">Read more</a>
-            </article>
+            </section>
+            <section class="posts">
+                <article>
+                    <img src="assets/01-frozen-water-drop.jpg"
+                        alt="place-holder">
+                    <div class="info">
+                        <p class="categories">Category</p>
+                    </div>
+                    <h3>Post title</h3>
+                    <div class="info">
+                        <p class="date">18 march 2025</p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Nam vero omnis ipsam cum mollitia doloremque dignissimos
+                        possimus porro excepturi.
+                    </p>
+                    <a href="detail.html">Read more</a>
+                </article>
+                <article>
+                    <img src="assets/01-frozen-water-drop.jpg"
+                        alt="place-holder">
+                    <div class="info">
+                        <p class="categories">Category</p>
+                    </div>
+                    <h3>Post title</h3>
+                    <div class="info">
+                        <p class="date">18 march 2025</p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Nam vero omnis ipsam cum mollitia doloremque dignissimos
+                        possimus porro excepturi.
+                    </p>
+                    <a href="detail.html">Read more</a>
+                </article>
+                <article>
+                    <img src="assets/01-frozen-water-drop.jpg"
+                        alt="place-holder">
+                    <div class="info">
+                        <p class="categories">Category</p>
+                        <p class="date">18 march 2025</p>
+                    </div>
+                    <h3>Post title</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Nam vero omnis ipsam cum mollitia doloremque dignissimos
+                        possimus porro excepturi.
+                    </p>
+                    <a href="detail.html">Read more</a>
+                </article>
 
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <footer></footer>
-</body>
+        <footer></footer>
+    </body>
 </html>

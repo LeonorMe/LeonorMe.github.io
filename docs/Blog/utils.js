@@ -15,3 +15,14 @@ function logout(){
     sessionStorage.removeItem("AuthenticationExpires");
     window.open("index.html", "_self");
 }
+
+window.addEventListener("load", load());
+
+function load(){
+    const loader = document.querySelector(".loader");
+
+    loader.classList.add("loader-hidden");
+    loader.addEventListener("transitionend", () => {
+        document.body.removeChild(loader);
+    });
+}

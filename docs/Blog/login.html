@@ -11,8 +11,10 @@
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous">
-    </script>
+        </script>
+        <script src="utils.js"></script>
         <script> 
+        
         $(function(){
             $("header").load("header.html"); 
             $("footer").load("footer.html"); 
@@ -28,7 +30,7 @@
             <section class="contact-form">
                 <p id="login-error-message"></p>
 
-                <form action method="" id="login-form">
+                <form action method id="login-form">
                     <div class="input-group">
                         <label for="login-name">Name*</label>
                         <input type="text" id="login-name" name="login-name"
@@ -46,8 +48,10 @@
         </main>
 
         <footer></footer>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
         <script src="login.js"></script>
     </body>
 </html>
