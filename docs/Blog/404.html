@@ -10,27 +10,25 @@
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous">
         </script>
-        <script src="utils.js"></script>
-        <script> 
-            $(function(){
-                $("header").load("header.html"); 
-                $("footer").load("footer.html"); 
-            });
-        </script>
     </head>
     <body class="error">
         <header></header>
 
         <main>
-            <h1>404 Error</h1>
-            <p>Page Not Found</p>
-            <p>Sorry, the page you are looking for might have been removed, <br>
-                had its name changed, or is temporarily unavailable.</p>
-            <p>Please check the URL or return to the home page.</p>
-            <p><a href="index.html">Return to home page</a></p>
-
+            <section>
+                <h1>404 Error</h1>
+                <span>Page Not Found</span>
+                <br><br>
+                <p>Sorry, the page you are looking for might have been removed, <br>
+                    had its name changed, or is temporarily unavailable.</p>
+                <p>Please check the URL or return to the home page.</p>
+                <br>
+                <a href="index.html">Return to home page</a>
+            </section>
         </main>
 
         <footer></footer>
+
+        <script src="script.js"></script>
     </body>
 </html>

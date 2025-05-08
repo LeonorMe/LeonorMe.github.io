@@ -1,0 +1,67 @@
+.last-post{
+    margin-bottom: 3vh;
+    padding: 0vh 7vw;
+}
+
+.last-post .row{
+    padding: 3% 4%;
+}
+
+/* --- */
+
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.post{
+    background-color: var(--primary);
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.post .row{
+    padding: 3% 4%;
+}
+
+.post .row div{
+    width: 100%;
+}
+
+/* --- */
+
+.topics {
+    text-align: right;
+}
+
+.title {
+    margin: 0;
+}
+
+.date {
+    font-size: 0.8em;
+}
+
+.abstract {
+    text-align: justify;
+}
+
+/* --- */
+
+.last-post .topics{
+    font-size: var(--f-large);
+}
+
+.last-post .title{
+    font-size: var(--f-xxlarge);
+}
+
+.last-post .date{
+    font-size: var(--f-normal);
+}
+
+.last-post .abstract{
+    font-size: var(--f-xlarge);
+}

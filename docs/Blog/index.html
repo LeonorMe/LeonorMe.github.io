@@ -9,104 +9,92 @@
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous">
-    </script>
-        <script src="utils.js"></script>
-        <script>
-        
-        $(function(){
-            $("header").load("header.html"); 
-            $("footer").load("footer.html"); 
-        });
-    </script>
-
+        </script>
+        <script src="script.js"></script>
+        <script> 
+            $(function(){
+                $("header").load("subpages/header.html"); 
+                $("footer").load("subpages/footer.html"); 
+            });
+        </script>
     </head>
     <body id="index">
+        
         <header></header>
-
+        
         <main>
-            <div class="intro">
-                <h1>Creativity blog</h1>
-                <p class="quote">"Let your hobbies make your day"</p>
-            </div>
+            <h1>Creative Arts & Crafts Blog</h1>
+            
             <section class="last-post">
-                <div class="image">
-                    <img src="assets/01-frozen-water-drop.jpg"
-                        alt="place-holder">
-                </div>
-                <div class="content">
-                    <div class="post-header">
-                        <div class="info">
-                            <p class="categories">Category</p>
+                <article>
+                    <div class="row">
+                        <div class="col-gold-big">
+                            <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
                         </div>
-                        <h2>This is a post title</h2>
-                        <div class="info">
-                            <p>18 march 2025</p>
+                        <div class="col-gold-small">
+                            <div class="topics">
+                                <a href="#">Topic</a>
+                            </div>
+                            <h2 class="title">Post Title</h2>
+                            <span class="date">18 march 2025</span>
+                            <p class="abstract">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis dolore itaque assumenda exercitationem! Odio impedit officia maiores accusamus, eius placeat. Maiores minus cum facere? Sed ducimus iste deserunt totam eos!</p>
                         </div>
                     </div>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Nam vero omnis ipsam cum mollitia doloremque
-                        dignissimos possimus porro excepturi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Libero, at? Nemo, asperiores harum. Quos aliquam
-                        perspiciatis eius veritatis, natus reprehenderit nihil
-                        necessitatibus culpa voluptatem non saepe deleniti omnis
-                        similique deserunt?
-                    </p>
-                    <a href="detail.html">Read more</a>
-                </div>
+                </article>
             </section>
+            
             <section class="posts">
-                <article>
-                    <img src="assets/01-frozen-water-drop.jpg"
-                        alt="place-holder">
-                    <div class="info">
-                        <p class="categories">Category</p>
+
+                <article class="post">
+                    <div class="row">
+                        <div>
+                            <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
+                        </div>
+                        <div>
+                            <div class="topics">
+                                <a href="#">Topic</a>
+                            </div>
+                            <h2 class="title">Post Title</h2>
+                            <span class="date">18 march 2025</span>
+                        </div>
                     </div>
-                    <h3>Post title</h3>
-                    <div class="info">
-                        <p class="date">18 march 2025</p>
-                    </div>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Nam vero omnis ipsam cum mollitia doloremque dignissimos
-                        possimus porro excepturi.
-                    </p>
-                    <a href="detail.html">Read more</a>
                 </article>
-                <article>
-                    <img src="assets/01-frozen-water-drop.jpg"
-                        alt="place-holder">
-                    <div class="info">
-                        <p class="categories">Category</p>
+
+                <article class="post">
+                    <div class="row">
+                        <div>
+                            <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
+                        </div>
+                        <div>
+                            <div class="topics align-right">
+                                <a href="#">Topic</a>
+                            </div>
+                            <h2 class="title">Post Title</h2>
+                            <span class="date">18 march 2025</span>
+                        </div>
                     </div>
-                    <h3>Post title</h3>
-                    <div class="info">
-                        <p class="date">18 march 2025</p>
-                    </div>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Nam vero omnis ipsam cum mollitia doloremque dignissimos
-                        possimus porro excepturi.
-                    </p>
-                    <a href="detail.html">Read more</a>
                 </article>
-                <article>
-                    <img src="assets/01-frozen-water-drop.jpg"
-                        alt="place-holder">
-                    <div class="info">
-                        <p class="categories">Category</p>
-                        <p class="date">18 march 2025</p>
+
+                <article class="post">
+                    <div class="row">
+                        <div>
+                            <img src="assets/01-frozen-water-drop.jpg" alt="place-holder">
+                        </div>
+                        <div>
+                            <div class="topics align-right">
+                                <a href="#">Topic</a>
+                            </div>
+                            <h2 class="title">Post Title</h2>
+                            <span class="date">18 march 2025</span>
+                        </div>
                     </div>
-                    <h3>Post title</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Nam vero omnis ipsam cum mollitia doloremque dignissimos
-                        possimus porro excepturi.
-                    </p>
-                    <a href="detail.html">Read more</a>
                 </article>
 
             </section>
+            
         </main>
-
+        
         <footer></footer>
+        
     </body>
 </html>
