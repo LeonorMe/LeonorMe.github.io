@@ -1,0 +1,15 @@
+Default Language: English
+Secondary Language: Portuguese
+
+Images: 4:3
+Cover (images): 2:1
+
+Color Pallet:
+Surface    | Black | #312316
+Secondary  | Brown | #694c30
+Accent     | Green | #6d8203
+Primary    | Beje  | #f4e2d2
+Background | white | #fdf7f2
+
+
+Tags list:
