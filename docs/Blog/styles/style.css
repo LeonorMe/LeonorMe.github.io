@@ -34,7 +34,8 @@
     --f-normal: 1rem;
     --f-large: 1.2rem;
     --f-xlarge: 1.4rem;
-    --f-xxlarge: 2rem;
+    --f-xxlarge: 1.8rem;
+    --f-logo: 2.2rem;
 }
 
 /* -- Zones --- */
@@ -128,6 +129,7 @@ img {
 /* --- Text --- */
 
 h1 {
+    margin-top: 3%;
     color: var(--accent);
     font-size: var(--f-xxlarge);
 }
@@ -154,9 +156,11 @@ a {
 }
 
 a:hover {
+    color: var(--surface);
     text-decoration: underline;
 }
 
 a:active {
+    color: var(--primary);
     text-decoration: line-through;
 }

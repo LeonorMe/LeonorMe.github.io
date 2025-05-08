@@ -1,9 +1,9 @@
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items:baseline;
-    padding: 20px 0;
-    border-bottom: 5px solid var(--primary);
+    padding: 1.5rem 0 0 0 ;
+    border-bottom: 5px solid var(--secondary);
     gap: 10px;
 }
 
@@ -16,29 +16,34 @@ nav {
 }
 
 nav a {
-    color: var(--light);
-    text-decoration: underline;
+    color: var(--surface);
+    font-size: var(--f-large);
+    font-weight: 700;
+    text-decoration: none;
 }
 
 nav a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+nav a:active {
     color: var(--primary);
     text-decoration: line-through;
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--light);
+    font-size: var(--f-logo);
+    font-weight: 700;
     text-decoration: none;
 }
 
 .logo:hover {
-    color: var(--primary);
     transform: scale(1.1);
     transition: 0.5s ease-in-out;
 }
 
-#logout{
-    width: auto;
-    padding: 0.5em 1em;
+.logo:active {
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
 }

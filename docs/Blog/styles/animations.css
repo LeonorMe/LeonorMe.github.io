@@ -1,8 +1,15 @@
-/* Abnimation: Loading page */
+/* Backend */
 
 #login main {
     margin-top: 5vh;
 }
+
+#logout {
+    width: auto;
+    padding: 0.5em 1em;
+}
+
+/* Abnimation: Loading page */
 
 .loader {
     position: fixed;
