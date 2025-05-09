@@ -45,17 +45,17 @@
 }
 
 .abstract {
-    text-align: justify;
+    /*text-align: justify;*/
 }
 
 /* --- */
 
 .last-post .topics{
-    font-size: var(--f-large);
+    font-size: var(--f-medium);
 }
 
 .last-post .title{
-    font-size: var(--f-xxlarge);
+    font-size: var(--f-xxxlarge);
 }
 
 .last-post .date{
@@ -63,5 +63,5 @@
 }
 
 .last-post .abstract{
-    font-size: var(--f-xlarge);
+    font-size: var(--f-medium);
 }

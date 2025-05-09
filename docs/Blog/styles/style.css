@@ -32,17 +32,23 @@
     /* --- Font size --- */
     --f-smal: 0.8rem;
     --f-normal: 1rem;
-    --f-large: 1.2rem;
-    --f-xlarge: 1.4rem;
+    --f-medium: 1.2rem;
+    --f-large: 1.4rem;
+    --f-xlarge: 1.6rem;
     --f-xxlarge: 1.8rem;
+    --f-xxxlarge: 2rem;
     --f-logo: 2.2rem;
+
+    --ff-logo: serif;
+    --ff-accent: serif;
+    --ff-main: sans-serif;
 }
 
 /* -- Zones --- */
 
 body{
     background-color: var(--background);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--ff-main);
     color: var(--surface);
     margin: 0 15vw;
 }
@@ -131,12 +137,14 @@ img {
 h1 {
     margin-top: 3%;
     color: var(--accent);
-    font-size: var(--f-xxlarge);
+    font-size: var(--f-xxxlarge);
+    font-family: var(--ff-accent);
 }
 
 h2 {
     color: var(--secondary);
-    font-size: var(--f-xlarge)
+    font-size: var(--f-xxlarge);
+    font-family: var(--ff-accent);
 }
 
 span {

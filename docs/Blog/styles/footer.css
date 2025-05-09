@@ -1,7 +1,12 @@
 footer{
-    border-top: 2px solid var(--primary);
-    margin: 15vh 0 0 0;
-    padding: 1em 0;
+    background-color: var(--secondary);
+    margin: 10vh 0 0 0;
+    padding: 1.5rem 5rem;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-top: 6px solid var(--primary);
+    gap: 10px;
+
+    font-weight: 600;
 }
 
 footer .links{
@@ -13,15 +18,39 @@ footer .links{
 }
 
 footer a{
-    color: var(--light);
-    text-decoration: underline;
+    color: var(--primary);
 }
 
 footer a:hover{
-    color: var(--primary);
-    text-decoration: line-through;
+    color: var(--background);
+}
+
+footer a:active{
+    color: var(--accent);
 }
 
 footer p{
-    color: var(--secondary);
+    /*margin-top: 2rem;*/
+    color: var(--surface);
+}
+
+/* --- */
+
+.btn-up{
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    border-radius: var(--radius);
+    font-size: var(--f-xlarge);
+    text-decoration: none;
+}
+
+.btn-up:hover{
+    background-color: var(--primary);
+}
+
+.btn-up:active{
+    background-color: var(--secondary);
 }
