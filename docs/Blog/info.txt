@@ -13,3 +13,13 @@ Background | white | #fdf7f2
 
 
 Tags list:
+
+
+Post json:
+    "id": 0,
+    "tags": ["tag1", "tag2"],
+    "date": "May 2025",
+    "title": "My first post",
+    "abstract": "This is my first post. I hope you like it.",
+    "images": ["assets/01-frozen-water-drop.jpg", "assets/"],
+    "content": "lorem"

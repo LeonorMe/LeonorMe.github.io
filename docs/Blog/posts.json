@@ -1,19 +1,29 @@
 [
     {
         "id": 0,
-        "tags": ["tag1", "tag2"],
+        "tags": ["test"],
         "date": "May 2025",
         "title": "My first post",
         "abstract": "This is my first post. I hope you like it.",
-        "images": ["/assets/images/cover.jpg"],
+        "images": ["assets/01-frozen-water-drop.jpg", "assets/01-frozen-water-drop.jpg"],
         "content": "<h2>Content</h2> This is <b>my</b> first <i>italic</i> post. <a href='about.html'>I hope you like it</a>. <h2>More content</h2> I am very excited to share my thoughts and ideas with you. This is a great opportunity for me to express myself and connect with others who share similar interests. I hope you find my posts informative and engaging. Thank you for reading!"
     },
     {
         "id": 1,
-        "tags": ["tag1", "tag2"],
+        "tags": ["test"],
         "date": "May 2025",
         "title": "My second post",
-        "abstract": "This is my first post. I hope you like it.",
+        "abstract": "This is my second post. I hope you like it.",
+        "images": ["assets/01-frozen-water-drop.jpg", "assets/01-frozen-water-drop.jpg"],
+        "content": "This is my first post. I hope you like it. I am very excited to share my thoughts and ideas with you. This is a great opportunity for me to express myself and connect with others who share similar interests. I hope you find my posts informative and engaging. Thank you for reading!"
+    },
+    {
+        "id": 2,
+        "tags": ["test"],
+        "date": "May 2025",
+        "title": "My third post",
+        "abstract": "This is my third post. I hope you like it.",
+        "images": ["assets/01-frozen-water-drop.jpg", "assets/01-frozen-water-drop.jpg"],
         "content": "This is my first post. I hope you like it. I am very excited to share my thoughts and ideas with you. This is a great opportunity for me to express myself and connect with others who share similar interests. I hope you find my posts informative and engaging. Thank you for reading!"
     }
 ]
