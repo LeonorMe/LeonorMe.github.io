@@ -15,8 +15,6 @@
             $(function(){
                 $("header").load("subpages/header.html"); 
                 $("footer").load("subpages/footer.html"); 
-                //$(".last-post").load("subpages/lastPost.html");
-                //$(".posts").load("subpages/posts.html");
             });
         </script>
     </head>
@@ -40,5 +38,9 @@
         <footer></footer>
         
         <script src="getPosts.js"></script>
+        <script>
+            getLastPost();
+            getPosts();
+        </script>
     </body>
 </html>

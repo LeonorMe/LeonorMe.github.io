@@ -1,7 +1,5 @@
-console.log("Getting posts...");
-
-document.addEventListener("DOMContentLoaded", getLastPost);
-getPosts();
+//document.addEventListener("DOMContentLoaded", getLastPost);
+//getPosts();
 
 // Last post
 function getLastPost() {
@@ -33,6 +31,11 @@ function getLastPost() {
                 </div>
             `;
 
+            // On click article go to detail.html?id=lpData.id
+            lpArticle.addEventListener("click", () => {
+                window.location.href = "detail.html?id=" + lpData.id;
+            });
+
             lpSection.appendChild(lpArticle);
     })
 };
@@ -43,6 +46,9 @@ function getPosts() {
         .then((response) => response.json())
         .then((data) => {
             const pSection = document.querySelector(".posts");
+            
+            // TODO: limit to 9 posts until scroll down
+            
             // go trow data from data.length - 1 to 0
             for (let i = data.length - 2; i >= 0; i--) {
                 const pData = data[i];
@@ -66,8 +72,40 @@ function getPosts() {
                         </div>
                     </div>
                 `;
+
+                // On click article go to detail.html?id=lpData.id
+                pArticle.addEventListener("click", () => {
+                    window.location.href = "detail.html?id=" + pData.id;
+                });
         
                 pSection.appendChild(pArticle);
             }
         })
+};
+
+// Post Detail
+function getPostDetail() {
+    const id = getId();
+    console.log("Getting post with id: " + id);
+    document.querySelector("main").innerHTML = getPostById(id);
+}
+
+// get id in link
+function getId() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    return id;
+}
+
+// Get post by id
+function getPostById(id) {
+    var innerHTML = "OI";
+    fetch("posts.json")
+        .then((response) => response.json())
+        .then((data) => {
+            const pData = data.find((post) => post.id == id);
+            console.log(pData);
+            innerHTML += `${pData.id}`; // `<p>Hello post ${pData.id}</p>`;
+    })
+    return "Hi " + innerHTML;
 };
