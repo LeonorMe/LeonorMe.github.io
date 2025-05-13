@@ -26,6 +26,7 @@
     --secondary: var(--brown);
     --accent: var(--green);
     --surface: var(--black);
+    --shadow: #694c3046;
     
     --radius: 12px;
 
@@ -74,6 +75,7 @@ article{
 article:hover{
     transform: scale(1.1);
     transition: 0.5s;
+    box-shadow: 0px 2px 3px 1px var(--shadow);
 }
 
 article:active{

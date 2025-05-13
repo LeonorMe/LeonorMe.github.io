@@ -13,6 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 5vh;
 }
 
 .post{
@@ -28,6 +29,10 @@
 
 .post .row div{
     width: 100%;
+}
+
+.post .abstract{
+    margin-top: 1em;
 }
 
 /* --- */
