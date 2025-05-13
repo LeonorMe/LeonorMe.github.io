@@ -85,9 +85,7 @@ function getPosts() {
 
 // Post Detail
 function getPostDetail() {
-    const id = getId();
-    console.log("Getting post with id: " + id);
-    document.querySelector("main").innerHTML = getPostById(id);
+    getPostById(getId());
 }
 
 // get id in link
@@ -99,13 +97,42 @@ function getId() {
 
 // Get post by id
 function getPostById(id) {
-    var innerHTML = "OI";
+    
     fetch("posts.json")
-        .then((response) => response.json())
-        .then((data) => {
-            const pData = data.find((post) => post.id == id);
-            console.log(pData);
-            innerHTML += `${pData.id}`; // `<p>Hello post ${pData.id}</p>`;
+    .then((response) => response.json())
+    .then((data) => {
+        const pData = data.find((post) => post.id == id);
+        console.log(pData);
+
+        const pMain = document.querySelector("main");
+        const psection = document.createElement("section");
+        psection.classList.add("post-detail");	
+        
+        psection.innerHTML = ` 
+        <div class="topics">
+            <a href="#">${pData.tags[0]}, ${pData.tags[0]}</a>
+        </div>
+        <h1 class="title">${pData.title}</h1>  
+        <span class="date">${pData.date}</span>
+        <br>
+
+        <div class="cover-image">      
+            <img class="cover-image" src="${pData.images[0]}" alt="post-cover-image">
+        </div>  
+        
+        <p class="abstract">${pData.abstract}</p>
+
+        <div class="post-body">
+            <div class="content">
+                ${pData.content}
+            </div> 
+            <div class="images">
+            ${pData.images.map((image) => `<img src="${image}" alt="post-image">`).join("")}
+            </div>
+        </div>
+        `;
+
+        pMain.appendChild(psection);
     })
-    return "Hi " + innerHTML;
+
 };
