@@ -1,4 +1,4 @@
-.row{
+#contact .row{
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -7,88 +7,102 @@
     margin-top: 5vh;
 }
 
-@media screen and (max-width: 768px) {
-    .row {
-        flex-direction: column-reverse;
+#contact .col {
+    width: 22vw;
+}
+
+@media screen and (max-width: 650px) {
+    #contact .col {
+        width: 100%;
+        align-self: center;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 1000px) {
+    #contact .row {
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 
-    .col {
-        width: 90vw;
-        height: auto;
-    }
-
-    .img-composition img {
-        width: 60%;
+    #contact .col {
+        width: 100%;
+        align-self: center;
     }
 }
 
-.col{
-    width: 45vw;
-}
 
-.col-img-composition{
+#contact .col-img-composition{
     height: 80vh;
 }
 
-.col-header{
+#contact .col-header{
     width: 100%;
     /*border: 1px var(--primary) solid;*/
 }
 
-.col h1{
+#contact .col h1{
     width: 100%;
     margin-top: 0;
 }
 
-.col form{
+#contact .col form{
     align-items: start;
 }
 
-.img-composition{
+#contact .img-composition{
     width: 100%;
     height:100%;
     position: relative;
     /*border: 2px solid var(--primary);*/
 }
 
-.img-composition img{
+#contact .img-composition img{
     width: 40%;
     border-radius: var(--radius);
 }
 
-.img-composition img:hover {
+#contact .img-composition img:hover {
     transform: scale(1.05);
     z-index: 10;
     transition: 0.3s ease-in-out;
 }
 
-.img-composition .imgC1{
+#contact .img-composition .imgC1{
     position: absolute;
     top: 0%;
     left: 0%;
 }
 
-.img-composition .imgC2 {
+#contact .img-composition .imgC2 {
     position: absolute;
     top: 10%;
     left: 30%;
 }
 
-.img-composition .imgC3 {
+#contact .img-composition .imgC3 {
     position: absolute;
     top: 25%;
     left: 10%;
 }
 
-.img-composition .imgC4 {
+#contact .img-composition .imgC4 {
     position: absolute;
     top: 40%;
     left: 40%;
 }
 
-.img-composition .imgC5 {
+#contact .img-composition .imgC5 {
     position: absolute;
     top: 55%;
     left: 20%;
+}
+
+/* --- */
+
+#contact .img-profile {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    object-position: center;
 }

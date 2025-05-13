@@ -2,9 +2,9 @@
 @import url(footer.css);
 @import url(posts.css);
 @import url(search.css);
-/*@import url(about.css);*/
-/*@import url(contact.css);*/
-/*@import url(form.css);*/
+
+@import url(contact.css);
+@import url(form.css);
 /*@import url(detail.css);*/
 /*@import url(news.css);*/
 /*@import url(login.css);*/
