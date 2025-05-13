@@ -1,6 +1,7 @@
 @import url(header.css);
 @import url(footer.css);
 @import url(posts.css);
+@import url(search.css);
 /*@import url(about.css);*/
 /*@import url(contact.css);*/
 /*@import url(form.css);*/
@@ -76,6 +77,7 @@ article:hover{
     transform: scale(1.1);
     transition: 0.5s;
     box-shadow: 0px 2px 3px 1px var(--shadow);
+    cursor: pointer;
 }
 
 article:active{
@@ -147,6 +149,10 @@ h2 {
     color: var(--secondary);
     font-size: var(--f-xxlarge);
     font-family: var(--ff-accent);
+}
+
+h3 {
+    color: var(--secondary);
 }
 
 span {

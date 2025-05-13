@@ -24,6 +24,22 @@
         
         <main>
             <h1>Creative Arts & Crafts Blog</h1>
+
+            <section class="search">
+                <div class="search-bar">
+                    <div id="select">
+                        <p id="selectText">All topics</p>
+                        <!--img src="arrow.png" alt="" srcset=""-->
+                        <p>v</p>
+                        <ul id="list">
+                            <li class="options">All topics</li>
+                            <li class="options">Topic1</li>
+                            <li class="options">Topic2</li>
+                        </ul>
+                    </div>
+                    <input type="search" placeholder="Search in all topics" name="search-in" id="search-in">
+                </div>
+            </section>
             
             <section class="posts">
 
@@ -35,7 +51,9 @@
         
         <script src="getPosts.js"></script>
         <script>
-            getAllPosts();
+            //getAllPosts();
+            getTopicPosts();
+            search();
         </script>
     </body>
 </html>

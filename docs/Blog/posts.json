@@ -1,7 +1,8 @@
 [
     {
         "id": 0,
-        "tags": ["test"],
+        "tags": "tag1",
+        "topics": "topic1",
         "date": "May 2025",
         "title": "My first post",
         "abstract": "This is my first post. I hope you like it.",
@@ -10,7 +11,8 @@
     },
     {
         "id": 1,
-        "tags": ["test"],
+        "tags": "tag2",
+        "topics": "topic1",
         "date": "May 2025",
         "title": "My second post",
         "abstract": "This is my second post. I hope you like it.",
@@ -19,7 +21,8 @@
     },
     {
         "id": 2,
-        "tags": ["test"],
+        "tags": "tag2",
+        "topics": "topic2",
         "date": "May 2025",
         "title": "My third post",
         "abstract": "This is my third post. I hope you like it.",
@@ -28,7 +31,8 @@
     },
     {
         "id": 3,
-        "tags": ["test"],
+        "tags": "tag1",
+        "topics": "topic2",
         "date": "May 2025",
         "title": "My fourth post",
         "abstract": "This is my fourth post. I hope you like it.",
