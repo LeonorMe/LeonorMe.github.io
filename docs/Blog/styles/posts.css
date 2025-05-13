@@ -137,3 +137,9 @@
     }
 
 }
+
+/* --- */
+
+.to-cover{
+    overflow: hidden;
+}

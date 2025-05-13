@@ -1,14 +1,14 @@
 [
     {
         "id": 0,
-        "title": "Topic1", 
-        "cover": "/assets/images/cover.jpg",
+        "title": "topic1", 
+        "cover": "assets/01-frozen-water-drop.jpg",
         "description": ""
     },
     {
         "id": 1,
-        "title": "Topic2", 
-        "cover": "/assets/images/cover.jpg",
+        "title": "topic2", 
+        "cover": "assets/01-frozen-water-drop.jpg",
         "description": ""
     }
 ]

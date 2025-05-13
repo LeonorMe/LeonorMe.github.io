@@ -142,7 +142,9 @@ function getTopic() {
 // Filter posts per topic
 function getTopicPosts(){
     const topic = getTopic();
+
     setSearch(topic);
+    setTopicHero(topic);
 
     fetch("posts.json")
     .then((response) => response.json())
@@ -150,10 +152,10 @@ function getTopicPosts(){
         data.find
 
         let filterData = data.filter((post) => post.topics == topic);
-        console.log(filterData)
+        //console.log(filterData)
         if(filterData.length == 0){
             getAllPosts();
-            console.log(" No posts founs for ", topic)
+            //console.log(" No posts founs for ", topic)
         }
         const pSection = document.querySelector(".posts");
             
@@ -210,7 +212,7 @@ function getPostById(id) {
     .then((response) => response.json())
     .then((data) => {
         const pData = data.find((post) => post.id == id);
-        console.log(pData);
+        //console.log(pData);
 
         const pMain = document.querySelector("main");
         const psection = document.createElement("section");
@@ -279,7 +281,32 @@ function setSearch(topic){
         let selectText = document.getElementById("selectText");
         let input = document.getElementById("search-in");   
     
-        selectText.innerHTML = topic
+        selectText.innerHTML = toUpper(topic);;
         input.placeholder = "Search in " + topic;
     }
+}
+
+function setTopicHero(topic){
+    let title = document.querySelector("h1");
+
+    fetch("topics.json")
+    .then((response) => response.json())
+    .then((data) => {
+        const tData = data.find((t) => t.title == topic);
+        
+        title.innerHTML = toUpper(tData.title);
+        
+        const cover = document.querySelector(".to-cover");
+        cover.innerHTML = `<img class="cover-image" src="${tData.cover}" alt="post-cover-image">`;;
+        cover.classList = "cover-image";
+    });
+    
+}
+
+
+/* --- */
+
+// Capitalize
+function toUpper(text){
+    return text.charAt(0).toUpperCase() + text.slice(1);
 }
