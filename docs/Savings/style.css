@@ -1,0 +1,58 @@
+:root{
+    --car-saved: rgb(109, 187, 20);
+    --car-goal: gray;
+    --background: rgb(28, 27, 27);
+    --accent: rgb(95, 114, 73);
+    --color: white;
+    --radius: 20px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--color);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+main{
+    margin: 0vh 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: var(--accent); 
+    padding-bottom: 2vh;
+    border-radius: var(--radius);
+}
+
+.saving-bar{
+    margin: 0;
+    padding: 0;
+}
+
+svg{
+    width: 80vw;
+    position: absolute;
+    left: 10vw;
+    top: 0;
+}
+
+#goal-img g{
+    fill: var(--car-goal);
+}
+
+#saved-img g{
+    fill: var(--car-saved);
+}
+
+#saved-img{
+    clip-path: inset(0% 50% 0% 0% );
+    /*  <top> , <right> , <bottom> , <left> */
+}
