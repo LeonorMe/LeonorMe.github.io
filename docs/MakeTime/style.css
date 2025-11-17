@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
+
+:root{
+    --light: #FFFCF2;
+    --light-gray: #CCC5B9;
+    --gray: #403D39;
+    --dark: #252422;
+    --accent: #EB5E28;
+    --shadow: #413e3a4d;
+
+    --font-title: "Sriracha", cursive;
+    --font: "Kite One", sans-serif;
+
+    --box-shadow: 0px 4px 4px var(--shadow);
+    --box-shadow-in: 0px 1px 4px 1px var(--shadow) inset;
+    --boder: 2rem;
+}
+
+.sriracha-regular, h1, h2, h3, a, button {
+    font-family: "Sriracha", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.kite-one-regular, p {
+    font-family: "Kite One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* --- */
+
+body{
+    background-color: var(--accent);
+    color: var(--light);
+    font-family: var(--font);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vh;
+    min-height: 100vh;
+    width: 100vw;
+} 
+
+header{
+    width:100vw;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0px 4px 4px var(--shadow);
+    justify-content: center;
+    padding: 0 5vw;
+}
+
+nav{
+    display: flex;
+    gap: 0.5em;
+    justify-content: end;
+    align-items: end;
+    margin-bottom: 0.6em;
+}
+
+a{
+    color: var(--light);
+    text-decoration: underline;
+}
+a:hover{
+    text-decoration: line-through;
+}
+
+.app-title {
+    font-family: var(--font-title);
+    font-size: xx-large;
+    text-decoration: none;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    justify-content: start;
+    align-items: start;
+    min-height: 50vh;
+    padding: 5vw;
+}
+
+article{
+    background-color: var(--light);
+    color: var(--dark);
+    border-radius: var(--boder);
+    box-shadow: var(--box-shadow);
+    padding: calc(var(--boder)/2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.accent{
+    color: var(--accent);
+}
+
+/* Forms */
+
+.btn,
+.btn-sec {
+    background-color: var(--accent);
+    color: var(--light);
+    border-radius: var(--boder);
+    box-shadow: var(--box-shadow);
+    padding: 0.5rem calc(var(--boder)/2);
+    font-size: medium;
+    min-width: 5rem;
+    border: none;
+    text-decoration: none;
+}
+
+.btn:hover,
+.btn-sec:hover {
+    box-shadow: var(--box-shadow-in);
+    text-decoration: none;
+}
+
+.btn-sec {
+    background-color: var(--light-gray);
+}
+
+.category{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+input{
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--boder);
+    min-width: 15rem;
+    padding: 0 1rem;
+    font-family: var(--font);
+}
+
+input:focus{
+    border: none;
+    box-shadow: var(--box-shadow-in);
+}
+
+input.middle:focus {
+    outline-width: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.in-color{
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    box-shadow: var(--shadow);
+    border-radius:var(--boder);
+    background-color: var(--accent);
+}
+
+.color-menu{
+    height: 200px;
+    width: 300px;
+}
+
+.color-menu .color{
+    height: 2em;
+    width: 2em;
+    border-radius: var(--boder);
+    background-color: var(--accent);
+}
+
+/* Footer */
+
+footer{
+    width: 100vw;
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+footer nav{
+    justify-content: center;
+}
+
+.copy{
+    color:var(--light-gray);
+    font-size: small;
+}
+
+.footer-logo-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.footer-logo-fixed img {
+    width: 50px;
+    height: 50px;
+}

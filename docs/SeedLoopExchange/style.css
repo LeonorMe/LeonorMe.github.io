@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root{
+    --copper: #b2713d;
+    --baby-powder: #F8F8F2;
+    --alabaster: #f1f1e4;
+    --dark-moss-green: #636b2f;
+    --drab-dark-brown: #3d4127;
+    --eerie-black: #222222;
+    --source-sans-3: "Source Sans 3", sans-serif;
+    --nunito-sans: "Nunito Sans", sans-serif;
+    --shadow: 0px 4px 6px #6a523f34;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    background-color: var(--baby-powder);
+    font-family: var(--source-sans-3);
+    color: #222222;
+}
+
+body{
+    transition: 0.3s linear;
+}
+
+section{
+    margin: 0vh 10vw;
+    width: 80vw;
+}
+
+img{
+    width: 100%;
+}
+
+header{
+    width: 80vw;
+    padding: 1vh 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.logo-img{
+    width: 100px;
+    margin-right: 10px;
+}
+.logo-text{
+    font-family: var(--nunito-sans);
+    font-size: 30px;
+    font-weight: 600;
+    color: #222222;
+    padding-bottom: 13px;
+}
+.logo-text div{
+    margin: 0;
+    padding: 0;
+    height: 26px;
+}
+
+nav{
+    display: flex;
+    justify-content: end;
+    align-items: first baseline;
+    gap: 20px;
+}
+
+a{
+    text-decoration: none;
+    font-size: larger;
+    color: var(--eerie-black);
+    font-weight: 500;
+}
+
+a:hover{
+    transform: scale(1.05);
+    font-weight: 600;
+}
+
+a .here{
+    text-decoration: underline;
+}
+
+.cta{
+    background-color: var(--dark-moss-green);
+    color: var(--baby-powder);
+    box-shadow: var(--shadow);
+    border-radius: 16px;
+    padding: 8px 16px;
+}
+
+.cta:hover, .cta-invert{
+    transform: scale(1.05);
+    border: 4px solid #636b2f;
+    background-color: var(--baby-powder);
+    color: #636b2f;
+    font-weight: 600;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 5vh;
+}
+
+#hero img{
+    border-radius: 36px 400px 400px 36px;
+    width: 40%;
+}
+
+.side-text{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5vw;
+    text-align: center;
+    gap: 16px;
+    background-color: transparent;
+}
+
+h1{
+    background-color: transparent;
+}
+
+.hero-text .cta{
+    margin-top: 20px;
+}
+
+#process{
+    gap:5vw;
+}
+
+.step{
+    width: 30vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 36px;
+}
+
+.step:hover{
+    transform: scale(1.05);
+}
+
+.number{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 20px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--drab-dark-brown);
+    color: var(--alabaster);
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.step p{
+    width: 8vw;
+    background-color: transparent;
+    font-weight: 500;
+}
+
+#exchanges{
+    gap: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-cards{
+    display: flex;
+    gap: 3vw;
+
+}
+
+.card{
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--alabaster);
+    border-radius: 36px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.card .side-text{
+    padding: 6px;
+    padding-top: 12px;
+}
+
+.card .side-text, .card .side-text h3, .card .side-text i, .card .side-text p{
+    background-color: transparent;
+}
+
+.card img.left {
+    border-radius: 36px 200px 200px 36px;
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+}
+
+p.green{
+    color: #636b2f;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+footer, #contact{
+    padding: 5vh 10vw;
+    background-color: #3d4127;
+    color: var(--alabaster);
+    display: flex;
+    gap:10%
+}
+
+.col-3{
+    width: 30%;
+    background-color: #3d4127;
+    color: var(--alabaster);
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.col-6{
+    width: 60%;
+    background-color: #3d4127;
+    color: var(--alabaster);
+}
+
+#contact a, #contact h3{
+    background-color: var(--drab-dark-brown);
+    color: var(--alabaster);
+}
+
+.copy{
+    background-color: var(--eerie-black);
+    color: var(--alabaster);
+    padding: 1vh 10vw;
+    font-weight: 300;
+}
