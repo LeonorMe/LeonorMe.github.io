@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --black: #000000;
+    --gray: #1D1C1B;
+    --gold: #D5A021;
+    --white: #FBFFFE;
+    --logo: "Cinzel", serif;
+    --text: "Work Sans", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: var(--white);
+}
+
+body{
+    background-color: var(--gray);
+    color: var(--white);
+    padding: 1vh 10vw;
+    font-family: var(--text);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 40vw;
+}
+.logo-text{
+    font-family: var(--logo);
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.logo hr{
+    position: relative;
+    top: -10px;
+    width: 84%;
+}
+
+hr{
+    border: none;
+    border-top: 2px solid var(--gold);
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: var(--gold);
+    text-decoration: underline;
+}
+a:active{
+    text-decoration: line-through;
+}
+a:visited{
+    opacity: 0.10;
+}
+
+section{
+    margin: 0;
+    padding: 0;
+}
+
+#hero{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+
+#hero img{
+    width: 70%;
+}
+
+.hero-text{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    left: -20vw;
+}
+
+h1{
+    font-family: var(--logo);
+    font-weight: bold;
+    font-size: 76px;
+    width: 100%;
+}
+
+.cta{
+    background-color: var(--gold);
+    color: var(--black);
+    padding: 12px 16px;
+    font-weight: bold;
+}
+.cta:hover{
+    color: var(--black);
+    background-color: #ffb300;
+}
+
+#contact{
+    margin: 5vh 0vw;
+}
+
+#contact img{
+    width: 100%;
+}
+
+#t1{
+    position: relative;
+    text-align: right;
+    left: -80px;
+    top: 90px;
+}
+
+#t2{
+    position: relative;
+    text-align-last: right;
+    right: 60vw;
+    top: 140px;
+}
+
+#t3{
+    position: relative;
+    text-align: right;
+    right: 50px;
+    top: -90px;
+
+}
+
+#book{
+    display: flex;
+}
+
+#book .col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#book p{
+    margin: 2rem 0px;
+    text-align: center;
+}
+
+#book img{
+    width: 50%;
+    position: relative;
+    right: -76px;
+}
+
+footer{
+    margin-top: 5vh;
+    background-color: var(--black);
+    padding: 3rem;
+    width: 100vw;
+    position: relative;
+    left: -10vw;
+    display: flex;
+    gap: 46px
+}
+
+footer nav{
+    flex-direction: column;
+    align-items: start;
+}
+
+footer .logo{
+    margin-bottom: 16px;
+}
+
+#col-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.copy{
+    background-color: var(--black);
+    width: 100vw;
+    position: relative;
+    left: -10vw;
+    padding: 1vh 5vw;
+    margin-bottom: 0;
+}
