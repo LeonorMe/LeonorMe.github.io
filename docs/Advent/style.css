@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+:root{
+    --red: #98282a;
+    --green: #386641;
+    --gold: #9c6615;
+    --off-white: #f2e8cf; 
+    --white: #ffffff;
+    --black: #000000; 
+    --shadow: 6px 6px 12px 8px #201e1f7d;
+    --border: 4px #9c6615;
+    --title: "Lora", serif;
+    --numbers: "Playfair Display", serif;
+    --text: "Lora", serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--off-white);
+    padding: 5vh 10vw;
+}
+
+header{
+    color: var(--red);
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 5vh;
+    outline: 4px solid var(--gold);
+    outline-offset: -2px;
+    width: calc(100%-2*1em);
+    font-family: var(--title);
+}
+
+.calendar{
+    background-color: var(--black);
+    box-shadow: var(--shadow);
+    height: 70vh;
+    max-height: 70vh;
+    text-align: center;
+    outline: 12px solid var(--gold);
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    width: 100%;
+    height: 50%;
+}
+
+.day{
+    border: var(--border) outset;
+    min-width: 1vw;
+    min-height: 1vh;
+    width: 100%;
+    height: 100%;
+
+    color: var(--off-white);
+    text-align: center;
+    align-content: center;
+    font-family: var(--numbers);
+    font-weight: 600;
+    font-size: larger;
+}
+
+.day:hover{
+    transform: scale(1.05);
+    transition: transform 2s ease-out;
+}
+
+#d1, #d3, #d5, #d7, #d9, #d11, #d13, #d15, #d17, #d19, #d21, #d23, #d25{
+    background-color: var(--red);
+}
+
+#d2, #d4, #d6, #d8, #d10, #d12, #d14, #d16, #d18, #d20, #d22, #d24{
+    background-color: var(--green);
+}
+
+#d24{
+    font-size: x-large;
+}
+
+#d25{
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+/* ------------------------------------------------ */
+
+/* Popup background */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Popup content */
+#popup-content {
+    position: relative;
+    background: #ffffffea;
+    padding: 25px 35px;
+    border-radius: 14px;
+    width: 350px;
+    text-align: center;
+    animation: popupAppear .4s ease-out;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes popupAppear {
+    0% {
+        transform: scale(0.5) translateY(40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#popup-close {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#popup-icon {
+    font-size: 50px;
+    margin-bottom: 1rem;
+}
+
+#popup-title{
+    font-family: var(--title);
+    margin-bottom: 0.3rem;
+}
+
+#popup-text{
+    font-family: var(--text);
+    margin-bottom: 1rem;
+}
+
+#popup-link {
+    display: inline-block;
+    color: var(--green);
+    font-weight: bold;
+    text-decoration: none;
+    font-family: var(--text);
+}
+
+#popup-link:hover {
+    text-decoration: underline;
+}
+
+/* Sparkle canvas */
+#sparkle-canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+/* Opening screen */
+#opening {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #241f12dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99999;
+    animation: fadeOut 3s ease-out forwards;
+    animation-delay: 3s;
+}
+
+#opening-text {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: textFadeIn 2s ease-out forwards;
+    font-family: var(--title);
+}
+
+@keyframes textFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#opening-sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ---------------------------------------------------------  */
+
+/* sparkle style */
+#fairy-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Base fairy dust particle */
+.fairy {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    opacity: 0.9;
+    filter: blur(1px);
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0) translate(-5px, -25px);
+        opacity: 0;
+    }
+}
