@@ -23,6 +23,9 @@
 body{
     background-color: var(--off-white);
     padding: 5vh 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header{
@@ -39,10 +42,12 @@ header{
 .calendar{
     background-color: var(--black);
     box-shadow: var(--shadow);
+    width: calc(70vh);
     height: 70vh;
     max-height: 70vh;
     text-align: center;
     outline: 12px solid var(--gold);
+    aspect-ratio: 1 / 1;
 }
 
 .col{
@@ -262,5 +267,24 @@ header{
     100% {
         transform: scale(0) translate(-5px, -25px);
         opacity: 0;
+    }
+}
+
+/* screens -------------------- */
+
+/* Media query for larger screens (desktop) */
+@media (min-width: 1024px) {
+    body {
+        padding: 5vh 20vw;
+    }
+}
+
+/* Media query for smaller screens (mobile) */
+@media (max-width: 600px) {
+    body {
+        padding: 5vh 2vw;
+    }
+    .calendar{
+        max-width: 90vw;
     }
 }
