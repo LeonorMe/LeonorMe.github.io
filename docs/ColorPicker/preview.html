@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette - preview</title>
+    <link rel="stylesheet" href="style.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script> 
+        $(function(){
+            $("header").load("header.html"); 
+            $("footer").load("footer.html"); 
+        });
+    </script>
+</head>
+<body id="index">
+    <header></header>
+
+    <h1>Preview palette colors</h1>
+
+    <form action="" method="get" id="colors-form">
+        <div>
+            <label for="color1">Dark</label>
+            <input type="color" name="color1" id="in-color1" value="#191919">
+        </div>
+        <div>
+            <label for="color2">Light</label>
+            <input type="color" name="color2" id="in-color2" value="#f5f5f5">
+        </div>
+        <div>
+            <label for="color3">Primary</label>
+            <input type="color" name="color3" id="in-color3" value="#97c71f">
+        </div>  
+        <div>
+        <label for="color4">Secondary</label>
+        <input type="color" name="color4" id="in-color4" value="#e1693d">
+        </div>
+        <div>
+        <label for="color5">Tertiary</label>
+        <input type="color" name="color5" id="in-color5" value="#963613">
+        </div>
+        <!--button type="submit" form="colors-form" value="Submit" class="button-color-save">Submit</button-->
+    </form>
+
+    <!--div id="preview-img">
+    </div-->
+    
+    <div class="buttons">
+        <button class="copy" data-copy="colors-form" id="copy-input">
+            <ion-icon name="copy-outline"></ion-icon> Copy
+        </button>
+        <!--button class="copy-css" data-copy="colors-form">
+        <ion-icon name="copy-outline"></ion-icon> CSS
+        </button-->
+    </div>
+    
+    <section>
+        <article id="00">
+            <div class="col2" id="preview-img">
+                <!--<img src="img/frame.svg" alt="" srcset="">-->
+            </div>
+        </article>
+
+        <article id="01">
+            <div class="col2" id="preview-img2">
+            </div>
+        </article>
+    </section>
+
+
+    <footer></footer>
+    
+    <div class="footer-logo-fixed">
+        <a href="../index.html">
+        <img src="../logo.png" alt="LM-logo">
+        </a>
+    </div>
+
+
+    <script src="preview.js"></script>
+</body>
+</html>

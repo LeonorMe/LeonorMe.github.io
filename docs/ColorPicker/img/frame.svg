@@ -1,0 +1,60 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2010_35)">
+<rect width="158" height="37" fill="white"/>
+<rect x="168" y="220" width="110" height="164" fill="white"/>
+<rect x="287" y="220" width="106" height="164" fill="white"/>
+<rect x="403" y="305" width="225" height="79" fill="white"/>
+<rect x="638" y="305" width="162" height="79" fill="white"/>
+<rect x="638" y="220" width="162" height="77" fill="white"/>
+<rect x="168" y="394" width="225" height="76" fill="white"/>
+<rect y="394" width="158" height="76" fill="white"/>
+<rect y="479" width="158" height="76" fill="white"/>
+<rect x="82" y="653" width="76" height="147" fill="white"/>
+<rect x="403" y="394" width="108" height="162" fill="white"/>
+<rect x="520" y="394" width="108" height="162" fill="white"/>
+<rect x="403" y="739" width="108" height="61" fill="white"/>
+<rect x="638" y="737" width="162" height="63" fill="white"/>
+<rect y="47" width="158" height="337" fill="#FF0000"/>
+<rect x="403" y="133" width="225" height="164" fill="#FF0000"/>
+<rect x="168" y="653" width="225" height="147" fill="#FF0000"/>
+<rect x="403" width="225" height="126" fill="#0000FF"/>
+<rect x="168" y="479" width="225" height="165" fill="#0000FF"/>
+<rect x="638" y="394" width="162" height="336" fill="#0000FF"/>
+<rect x="403" y="562" width="225" height="168" fill="#FFFF00"/>
+<rect y="653" width="73" height="147" fill="#FFFF00"/>
+<rect x="168" y="47" width="225" height="164" fill="#FFFF00"/>
+<rect x="168" width="225" height="37" fill="#FFFF00"/>
+<rect x="638" y="47" width="162" height="79" fill="#FFFF00"/>
+<rect x="638" width="76" height="37" fill="#FFFF00"/>
+<rect y="564" width="160" height="82" fill="black"/>
+<rect x="637" y="132" width="163" height="79" fill="black"/>
+<rect x="723" width="77" height="39" fill="black"/>
+<rect x="520" y="737" width="110" height="63" fill="black"/>
+<line x1="163.053" y1="0.000331004" x2="163" y2="800.001" stroke="black" stroke-width="10"/>
+<line x1="398.053" y1="-5.99967" x2="398" y2="800" stroke="black" stroke-width="10"/>
+<line x1="633.053" y1="-5.99967" x2="632.999" y2="808" stroke="black" stroke-width="10"/>
+<line y1="389" x2="800" y2="389" stroke="black" stroke-width="10"/>
+<line x1="399.999" y1="301.5" x2="800.001" y2="301.5" stroke="black" stroke-width="10"/>
+<line x1="400" y1="128" x2="800.002" y2="128" stroke="black" stroke-width="10"/>
+<line y1="42" x2="400.002" y2="42" stroke="black" stroke-width="10"/>
+<line x1="-7" y1="474" x2="393.002" y2="474" stroke="black" stroke-width="10"/>
+<line x1="399.999" y1="559.5" x2="628.003" y2="559.5" stroke="black" stroke-width="10"/>
+<line x1="515" y1="556" x2="515" y2="394" stroke="black" stroke-width="10"/>
+<line x1="77.5" y1="800.002" x2="77.5" y2="643.998" stroke="black" stroke-width="10"/>
+<line x1="282" y1="387" x2="282" y2="220" stroke="black" stroke-width="10"/>
+<line x1="719" y1="47" x2="719" stroke="black" stroke-width="10"/>
+<line x1="165" y1="648" x2="393.004" y2="648" stroke="black" stroke-width="10"/>
+<line x1="165" y1="215" x2="393.004" y2="215" stroke="black" stroke-width="10"/>
+<line x1="638" y1="42" x2="800" y2="42" stroke="black" stroke-width="10"/>
+<line x1="638" y1="215" x2="800" y2="215" stroke="black" stroke-width="10"/>
+<path d="M0 560H160" stroke="black" stroke-width="10"/>
+<line x1="-2" y1="648" x2="160" y2="648" stroke="black" stroke-width="10"/>
+<line x1="400" y1="734" x2="800.002" y2="734" stroke="black" stroke-width="10"/>
+<line x1="515.5" y1="800.004" x2="515.5" y2="734.996" stroke="black" stroke-width="10"/>
+</g>
+<defs>
+<clipPath id="clip0_2010_35">
+<rect width="800" height="800" fill="white"/>
+</clipPath>
+</defs>
+</svg>
