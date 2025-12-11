@@ -11,18 +11,32 @@
 
 		<style>
 			:root{
-				--d-green:#252f1f;
-				--l-green: #e9efe1;
+				--d-green:#1c2318;
+				--l-green: #eef2e9;
 			}
 			body{
 				margin: 0;
-				padding: 5vh 10vw;
+				padding: 5vh 5vw;
 				background-color: var(--l-green);
 				color: var(--d-green);
 				text-align: center;
+				justify-content: center;
+				align-items: center;
 				display: flex;
 				flex-direction: column;
 				gap: 8vh;
+			}
+			section{
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+			embed{
+				width: 32%;
+				aspect-ratio: 1.4;
+				margin-bottom: 1rem;
 			}
 			nav{
 				display: flex;
@@ -43,16 +57,15 @@
 		</style>
 	</head>
 	<body>
-		<!--<a  
-		href="./Porfolio/home.html">-->
-		<div>
-			<h1>LM Websites</h1>
-			<p>Welcome, this is a portfolio-list of some of the websites I have created.</p>
-		</div>
-		<!--<p>Please procede to the main page</p>-->
-	<!--</a>-->
+		<header>
+			<div>
+				<h1>Leonor Medeiros</h1>
+				<p>Welcome, this is a collection of websites I have created.</p>
+			</div>
+			<!--button>Go to random</button-->
+		</header>
 
-		<nav>
+		<!--nav>
 			<a	href="https://leonormedeiros.netlify.app/"><b>Personal Portfolio</b></a>
 			<a
 			href="./Software/index.html">Software projects - websites</a>
@@ -87,7 +100,29 @@
 			<a
 			href="./Pomodoro/index.html">Pomodoro</a>
 			<a href="./MakeTime/index.html">MakeTime</a>
-		</nav>
+		</nav-->
+
+		<section>
+			<embed src="./Advent/index.html" type="text/html">
+			<embed src="./Blog/index.html" type="text/html">
+			<embed src="./ColorPicker/preview.html" type="text/html">
+			<embed src="./Gallery/index.html" type="text/html">
+			<embed src="./LEANOR_fashion/index.html" type="text/html"> 
+			<embed src="./Library/index.html" type="text/html"> 
+			<embed src="./Linea_dOro/index.html" type="text/html"> 
+			<embed src="./MakeTime/index.html" type="text/html"> 
+			<embed src="./Music/index.html" type="text/html"> 
+			<!--embed src="./Nutricion/index.html" type="text/html"--> 
+			<!--embed src="./PhotoColorGallery/index.html" type="text/html"--> 
+			<embed src="./Pomodoro/index.html" type="text/html"> 
+			<!--embed src="./Porfolio/home.html" type="text/html"--> 
+			<!--embed src="./Recipts/recipts.html" type="text/html"--> 
+			<!--embed src="./Savings/index.html" type="text/html"--> 
+			<embed src="./SeedLoopExchange/index.html" type="text/html"> 
+			<embed src="./Software/index.html" type="text/html"> 
+			<embed src="./StandartWebsite/index.html" type="text/html"> 
+			<embed src="./Todo/index.html" type="text/html"> 
+		</section>
 		
 		
 		<footer style="margin-top:5%;">
