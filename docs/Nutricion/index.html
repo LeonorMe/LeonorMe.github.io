@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meal Plan — Semana por Estação</title>
+  <style>
+    :root{--bg:#f7f7f8;--card:#fff;--muted:#6b7280;--accent:#0f766e;--glass:rgba(255,255,255,0.6)}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;margin:0;background:linear-gradient(180deg,#eef2f7 0%,var(--bg)100%);color:#0f172a}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+    h1{font-size:20px;margin:0}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    input[type="search"],select{padding:10px 12px;border-radius:10px;border:1px solid #e6e9ee;background:var(--card);min-width:220px}
+    button{padding:10px 12px;border-radius:10px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:18px}
+    .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.06);display:flex;flex-direction:column;gap:8px}
+    .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+    .title{font-weight:600}
+    .desc{font-size:14px;color:#111827}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:#f1f5f9;padding:6px 8px;border-radius:999px;font-size:12px;color:#0f172a}
+    .macros{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .bar{height:8px;background:#eef2ff;border-radius:6px;flex:1;overflow:hidden}
+    .bar > i{display:block;height:100%}
+    .p{background:#c7f9e7}
+    .c{background:#ffe7c7}
+    .f{background:#ffd6e0}
+    footer{margin-top:18px;font-size:13px;color:var(--muted)}
+    .toolbar{display:flex;gap:8px;align-items:center}
+    .hidden{display:none}
+    .table-view{width:100%;border-collapse:collapse;margin-top:12px}
+    .table-view th,.table-view td{padding:8px;border-bottom:1px solid #eef2f7;text-align:left;font-size:13px}
+    .download{background:#0b5b65}
+    @media(min-width:900px){h1{font-size:22px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Meal Plan — 4 semanas sazonais (Portugal)</h1>
+        <div class="controls">
+          <input id="search" type="search" placeholder="Pesquisar por nome, descrição, nutriente..." />
+          <select id="seasonFilter">
+            <option value="">Todas as estações</option>
+            <option>Primavera</option>
+            <option>Verão</option>
+            <option>Outono</option>
+            <option>Inverno</option>
+          </select>
+          <select id="mealFilter">
+            <option value="">Todas as refeições</option>
+            <option value="pequeno-almoco">Pequeno-almoço</option>
+            <option value="almoco">Almoço</option>
+            <option value="jantar">Jantar</option>
+            <option value="ceia">Ceia</option>
+          </select>
+          <div class="toolbar">
+            <button id="toggleView">Alternar Vista Tabela/Cartões</button>
+            <button id="download" class="download">Descarregar CSV</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="cards" class="grid"></div>
+      <div id="table" class="hidden">
+        <table class="table-view" id="resultsTable">
+          <thead><tr><th>Estação</th><th>Dia</th><th>Refeição</th><th>Nome</th><th>Descrição</th><th>kcal</th><th>Proteína %</th><th>Carb %</th><th>Gordura %</th><th>Principais nutrientes</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      Pesquise por ingredientes, nutrientes ou filtre por estação e tipo de refeição. Valores aproximados ~430 kcal por refeição.
+    </footer>
+  </div>
+
+  <script>
+    // Dados importados a partir do CSV fornecido (112 entradas)
+    const MEALS = [
+{"season":"Primavera","day":"1","meal_time":"pequeno-almoco","name":"Panela de aveia proteica","description":"Aveia integral com iogurte natural, morango e sementes de chia","kcal":430,"protein_pct":32,"carb_pct":42,"fat_pct":26,"key_nutrients":"Vit C;Fibras;Magnésio"},
+{"season":"Primavera","day":"1","meal_time":"almoco","name":"Bowl de quinoa e carapau","description":"Quinoa com carapau grelhado, alface e rabanete","kcal":430,"protein_pct":37,"carb_pct":38,"fat_pct":25,"key_nutrients":"Ómega-3;Folatos;Potássio"},
+{"season":"Primavera","day":"1","meal_time":"jantar","name":"Creme leve de abóbora","description":"Creme de abóbora manteiga com alho-francês e curcuma","kcal":420,"protein_pct":18,"carb_pct":47,"fat_pct":35,"key_nutrients":"Betacaroteno;Vit B6;Manganês"},
+{"season":"Primavera","day":"1","meal_time":"ceia","name":"Iogurte proteína leve","description":"Iogurte natural com amêndoas picadas","kcal":420,"protein_pct":30,"carb_pct":25,"fat_pct":45,"key_nutrients":"Cálcio;Vit B2;Magnésio"},
+{"season":"Primavera","day":"2","meal_time":"pequeno-almoco","name":"Ovos mexidos com aipo","description":"Ovos mexidos com aipo salteado e curcuma","kcal":430,"protein_pct":40,"carb_pct":15,"fat_pct":45,"key_nutrients":"Vit D;Colina;Selénio"},
+{"season":"Primavera","day":"2","meal_time":"almoco","name":"Frango salteado primavera","description":"Frango com courgette e rúcula","kcal":430,"protein_pct":36,"carb_pct":32,"fat_pct":32,"key_nutrients":"Vit C;Fibras;Potássio"},
+{"season":"Primavera","day":"2","meal_time":"jantar","name":"Sopa de cogumelos","description":"Sopa leve de cogumelos com alho e azeite","kcal":420,"protein_pct":20,"carb_pct":40,"fat_pct":40,"key_nutrients":"Vit B3;Cobre;Selénio"},
+{"season":"Primavera","day":"2","meal_time":"ceia","name":"Queijo fresco com frutos secos","description":"Queijo fresco magro e noz","kcal":420,"protein_pct":28,"carb_pct":20,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit A"},
+{"season":"Primavera","day":"3","meal_time":"pequeno-almoco","name":"Papa de aveia cítrica","description":"Aveia com raspas de limão e morango","kcal":430,"protein_pct":28,"carb_pct":50,"fat_pct":22,"key_nutrients":"Vit C;Fibras;Potássio"},
+{"season":"Primavera","day":"3","meal_time":"almoco","name":"Peito de peru grelhado","description":"Peru com salada de alface e rabanete","kcal":430,"protein_pct":40,"carb_pct":25,"fat_pct":35,"key_nutrients":"Vit B12;Fibras;Ferro"},
+{"season":"Primavera","day":"3","meal_time":"jantar","name":"Pescada ao vapor","description":"Pescada com nabiças salteadas","kcal":420,"protein_pct":35,"carb_pct":25,"fat_pct":40,"key_nutrients":"Vit B6;Iodo;Ómega-3"},
+{"season":"Primavera","day":"3","meal_time":"ceia","name":"Maçã e sementes","description":"Maçã com sementes de linhaça","kcal":420,"protein_pct":10,"carb_pct":60,"fat_pct":30,"key_nutrients":"Fibras;Lignanas;Vit C"},
+{"season":"Primavera","day":"4","meal_time":"pequeno-almoco","name":"Ovos cozidos com pepino","description":"Ovos com pepino e limão","kcal":430,"protein_pct":42,"carb_pct":10,"fat_pct":48,"key_nutrients":"Colina;Vit D;Vit C"},
+{"season":"Primavera","day":"4","meal_time":"almoco","name":"Bacalhau desfiado","description":"Salada morna de bacalhau com courgette","kcal":430,"protein_pct":38,"carb_pct":28,"fat_pct":34,"key_nutrients":"Iodo;Ómega-3;Vit B12"},
+{"season":"Primavera","day":"4","meal_time":"jantar","name":"Creme de cenoura","description":"Cenoura com alho-francês e açafrão","kcal":420,"protein_pct":17,"carb_pct":50,"fat_pct":33,"key_nutrients":"Betacaroteno;Vit C;Cobre"},
+{"season":"Primavera","day":"4","meal_time":"ceia","name":"Iogurte com avelãs","description":"Iogurte natural e avelãs partidas","kcal":420,"protein_pct":26,"carb_pct":22,"fat_pct":52,"key_nutrients":"Cálcio;Vit B2;Magnésio"},
+{"season":"Primavera","day":"5","meal_time":"pequeno-almoco","name":"Aveia morango e linhaça","description":"Aveia com morango e linhaça moída","kcal":430,"protein_pct":27,"carb_pct":52,"fat_pct":21,"key_nutrients":"Fibras;ALA;Vit C"},
+{"season":"Primavera","day":"5","meal_time":"almoco","name":"Carne de porco magra salteada","description":"Porco magro com courgette e alface","kcal":430,"protein_pct":37,"carb_pct":30,"fat_pct":33,"key_nutrients":"Vit B1;Potássio;Ferro"},
+{"season":"Primavera","day":"5","meal_time":"jantar","name":"Cogumelos e ovo escalfado","description":"Cogumelos salteados com ovo","kcal":420,"protein_pct":30,"carb_pct":25,"fat_pct":45,"key_nutrients":"Vit D;Selénio;Cobre"},
+{"season":"Primavera","day":"5","meal_time":"ceia","name":"Queijo cottage e noz","description":"Cottage com noz","kcal":420,"protein_pct":32,"carb_pct":18,"fat_pct":50,"key_nutrients":"Cálcio;Fósforo;Magnésio"},
+{"season":"Primavera","day":"6","meal_time":"pequeno-almoco","name":"Panqueca integral","description":"Panqueca de farinha de milho com ovo","kcal":430,"protein_pct":34,"carb_pct":40,"fat_pct":26,"key_nutrients":"Vit B3;Fibras;Ferro"},
+{"season":"Primavera","day":"6","meal_time":"almoco","name":"Frango com salada de rúcula","description":"Frango grelhado e rúcula com limão","kcal":430,"protein_pct":39,"carb_pct":28,"fat_pct":33,"key_nutrients":"Vit K;Vit C;Ferro"},
+{"season":"Primavera","day":"6","meal_time":"jantar","name":"Sopa leve de abóbora","description":"Abóbora com alho-francês e especiarias","kcal":420,"protein_pct":18,"carb_pct":48,"fat_pct":34,"key_nutrients":"Betacaroteno;Vit B6;Manganês"},
+{"season":"Primavera","day":"6","meal_time":"ceia","name":"Pera e sementes","description":"Pera com sementes de sésamo","kcal":420,"protein_pct":8,"carb_pct":62,"fat_pct":30,"key_nutrients":"Fibras;Cálcio;Vit C"},
+{"season":"Primavera","day":"7","meal_time":"pequeno-almoco","name":"Ovos e cogumelos","description":"Ovo mexido com cogumelos","kcal":430,"protein_pct":41,"carb_pct":15,"fat_pct":44,"key_nutrients":"Vit D;Selénio;Colina"},
+{"season":"Primavera","day":"7","meal_time":"almoco","name":"Salmão grelhado","description":"Salmão com courgette","kcal":430,"protein_pct":38,"carb_pct":20,"fat_pct":42,"key_nutrients":"Ómega-3;Vit D;Iodo"},
+{"season":"Primavera","day":"7","meal_time":"jantar","name":"Sopa cítrica de cenoura","description":"Cenoura com limão e curcuma","kcal":420,"protein_pct":17,"carb_pct":49,"fat_pct":34,"key_nutrients":"Betacaroteno;Vit C;Cobre"},
+{"season":"Primavera","day":"7","meal_time":"ceia","name":"Iogurte com chia","description":"Iogurte com chia","kcal":420,"protein_pct":27,"carb_pct":24,"fat_pct":49,"key_nutrients":"Cálcio;Magnésio;ALA"},
+
+{"season":"Verão","day":"1","meal_time":"pequeno-almoco","name":"Aveia com mirtilo","description":"Aveia integral com mirtilo e linhaça","kcal":430,"protein_pct":26,"carb_pct":54,"fat_pct":20,"key_nutrients":"Antioxidantes;Fibras;Vit C"},
+{"season":"Verão","day":"1","meal_time":"almoco","name":"Bowl mediterrânica","description":"Quinoa com tomate, pepino e sardinha fresca","kcal":430,"protein_pct":36,"carb_pct":34,"fat_pct":30,"key_nutrients":"Ómega-3;Licopeno;Potássio"},
+{"season":"Verão","day":"1","meal_time":"jantar","name":"Sopa fria de pepino","description":"Gaspacho leve de pepino","kcal":420,"protein_pct":14,"carb_pct":55,"fat_pct":31,"key_nutrients":"Vit C;Vit K;Hidratação"},
+{"season":"Verão","day":"1","meal_time":"ceia","name":"Iogurte e amêndoas","description":"Iogurte natural com amêndoas","kcal":420,"protein_pct":26,"carb_pct":22,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Verão","day":"2","meal_time":"pequeno-almoco","name":"Ovos com tomate","description":"Ovos mexidos com tomate","kcal":430,"protein_pct":40,"carb_pct":18,"fat_pct":42,"key_nutrients":"Vit C;Colina;Selénio"},
+{"season":"Verão","day":"2","meal_time":"almoco","name":"Frango grelhado mediterrânico","description":"Frango com pimento e pepino","kcal":430,"protein_pct":37,"carb_pct":32,"fat_pct":31,"key_nutrients":"Vit C;Fibras;Potássio"},
+{"season":"Verão","day":"2","meal_time":"jantar","name":"Beringela assada","description":"Beringela no forno com azeite","kcal":420,"protein_pct":12,"carb_pct":50,"fat_pct":38,"key_nutrients":"Polifenóis;Fibras;Manganês"},
+{"season":"Verão","day":"2","meal_time":"ceia","name":"Pêssego e sementes","description":"Pêssego com sementes de sésamo","kcal":420,"protein_pct":8,"carb_pct":64,"fat_pct":28,"key_nutrients":"Vit C;Fibras;Cálcio"},
+{"season":"Verão","day":"3","meal_time":"pequeno-almoco","name":"Aveia com framboesa","description":"Aveia com framboesa e chia","kcal":430,"protein_pct":25,"carb_pct":55,"fat_pct":20,"key_nutrients":"Vit C;Fibras;Magnésio"},
+{"season":"Verão","day":"3","meal_time":"almoco","name":"Peixe-espada grelhado","description":"Peixe-espada com tomate e pepino","kcal":430,"protein_pct":38,"carb_pct":26,"fat_pct":36,"key_nutrients":"Vit D;Iodo;Potássio"},
+{"season":"Verão","day":"3","meal_time":"jantar","name":"Creme leve de abóbora","description":"Abóbora com curcuma","kcal":420,"protein_pct":18,"carb_pct":48,"fat_pct":34,"key_nutrients":"Betacaroteno;Vit C;Manganês"},
+{"season":"Verão","day":"3","meal_time":"ceia","name":"Queijo fresco com noz","description":"Queijo fresco e nozes","kcal":420,"protein_pct":28,"carb_pct":18,"fat_pct":54,"key_nutrients":"Cálcio;Fósforo;Magnésio"},
+{"season":"Verão","day":"4","meal_time":"pequeno-almoco","name":"Ovos com pepino","description":"Ovos cozidos com pepino","kcal":430,"protein_pct":42,"carb_pct":10,"fat_pct":48,"key_nutrients":"Vit C;Colina;Vit D"},
+{"season":"Verão","day":"4","meal_time":"almoco","name":"Dourada grelhada","description":"Dourada com pepino e tomate","kcal":430,"protein_pct":36,"carb_pct":24,"fat_pct":40,"key_nutrients":"Ómega-3;Potássio;Vit B12"},
+{"season":"Verão","day":"4","meal_time":"jantar","name":"Sopa fria de tomate","description":"Gaspacho leve","kcal":420,"protein_pct":12,"carb_pct":54,"fat_pct":34,"key_nutrients":"Vit C;Licopeno;Fibras"},
+{"season":"Verão","day":"4","meal_time":"ceia","name":"Melão e sementes","description":"Melão com sésamo","kcal":420,"protein_pct":7,"carb_pct":65,"fat_pct":28,"key_nutrients":"Hidratação;Vit C;Potássio"},
+{"season":"Verão","day":"5","meal_time":"pequeno-almoco","name":"Aveia com ameixa","description":"Aveia integral com ameixa e linhaça","kcal":430,"protein_pct":26,"carb_pct":54,"fat_pct":20,"key_nutrients":"Fibras;Vit K;Magnésio"},
+{"season":"Verão","day":"5","meal_time":"almoco","name":"Frango com beringela","description":"Frango grelhado com beringela assada","kcal":430,"protein_pct":38,"carb_pct":30,"fat_pct":32,"key_nutrients":"Vit B6;Potássio;Fibras"},
+{"season":"Verão","day":"5","meal_time":"jantar","name":"Pepino e ovo","description":"Ovo escalfado com pepino","kcal":420,"protein_pct":30,"carb_pct":18,"fat_pct":52,"key_nutrients":"Colina;Vit D;Vit C"},
+{"season":"Verão","day":"5","meal_time":"ceia","name":"Uvas e amêndoas","description":"Uva com amêndoa","kcal":420,"protein_pct":9,"carb_pct":61,"fat_pct":30,"key_nutrients":"Resveratrol;Vit E;Fibras"},
+{"season":"Verão","day":"6","meal_time":"pequeno-almoco","name":"Panqueca integral verão","description":"Panqueca de milho com ovo e limão","kcal":430,"protein_pct":34,"carb_pct":40,"fat_pct":26,"key_nutrients":"Vit B3;Fibras;Cálcio"},
+{"season":"Verão","day":"6","meal_time":"almoco","name":"Atum grelhado","description":"Atum com tomate e pepino","kcal":430,"protein_pct":39,"carb_pct":22,"fat_pct":39,"key_nutrients":"Ómega-3;Vit D;Ferro"},
+{"season":"Verão","day":"6","meal_time":"jantar","name":"Creme leve de cenoura","description":"Cenoura com limão e curcuma","kcal":420,"protein_pct":17,"carb_pct":49,"fat_pct":34,"key_nutrients":"Vit C;Betacaroteno;Cobre"},
+{"season":"Verão","day":"6","meal_time":"ceia","name":"Iogurte com avelãs","description":"Iogurte natural e avelãs","kcal":420,"protein_pct":26,"carb_pct":22,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Verão","day":"7","meal_time":"pequeno-almoco","name":"Ovos e beringela","description":"Ovos com beringela grelhada","kcal":430,"protein_pct":38,"carb_pct":20,"fat_pct":42,"key_nutrients":"Vit D;Selénio;Colina"},
+{"season":"Verão","day":"7","meal_time":"almoco","name":"Robalo grelhado","description":"Robalo com pimento","kcal":430,"protein_pct":37,"carb_pct":26,"fat_pct":37,"key_nutrients":"Potássio;Vit D;Iodo"},
+{"season":"Verão","day":"7","meal_time":"jantar","name":"Salada fria mediterrânica","description":"Tomate, pepino e quinoa","kcal":420,"protein_pct":20,"carb_pct":52,"fat_pct":28,"key_nutrients":"Fibras;Vit C;Magnésio"},
+{"season":"Verão","day":"7","meal_time":"ceia","name":"Mirtilos e noz","description":"Mirtilos com noz","kcal":420,"protein_pct":10,"carb_pct":55,"fat_pct":35,"key_nutrients":"Antioxidantes;Fibras;Vit K"},
+
+{"season":"Outono","day":"1","meal_time":"pequeno-almoco","name":"Aveia com maçã","description":"Aveia com maçã nova e linhaça","kcal":430,"protein_pct":26,"carb_pct":54,"fat_pct":20,"key_nutrients":"Fibras;Vit C;ALA"},
+{"season":"Outono","day":"1","meal_time":"almoco","name":"Polvo grelhado","description":"Polvo com batata-doce e beterraba","kcal":430,"protein_pct":36,"carb_pct":34,"fat_pct":30,"key_nutrients":"Vit B12;Ferro;Nitratos naturais"},
+{"season":"Outono","day":"1","meal_time":"jantar","name":"Creme de abóbora","description":"Abóbora com alho-francês e açafrão","kcal":420,"protein_pct":18,"carb_pct":48,"fat_pct":34,"key_nutrients":"Betacaroteno;Vit C;Manganês"},
+{"season":"Outono","day":"1","meal_time":"ceia","name":"Iogurte com amêndoas","description":"Iogurte natural com amêndoa","kcal":420,"protein_pct":26,"carb_pct":22,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Outono","day":"2","meal_time":"pequeno-almoco","name":"Ovos com beterraba","description":"Ovos mexidos com beterraba ralada","kcal":430,"protein_pct":39,"carb_pct":20,"fat_pct":41,"key_nutrients":"Vit B9;Ferro;Colina"},
+{"season":"Outono","day":"2","meal_time":"almoco","name":"Peixe-espada grelhado","description":"Peixe-espada com abóbora assada","kcal":430,"protein_pct":37,"carb_pct":28,"fat_pct":35,"key_nutrients":"Vit D;Potássio;Iodo"},
+{"season":"Outono","day":"2","meal_time":"jantar","name":"Sopa de cogumelos","description":"Sopa leve de cogumelos","kcal":420,"protein_pct":19,"carb_pct":42,"fat_pct":39,"key_nutrients":"Selénio;Vit B3;Cobre"},
+{"season":"Outono","day":"2","meal_time":"ceia","name":"Pera e sementes","description":"Pera com sementes de linhaça","kcal":420,"protein_pct":9,"carb_pct":63,"fat_pct":28,"key_nutrients":"Fibras;ALA;Vit C"},
+{"season":"Outono","day":"3","meal_time":"pequeno-almoco","name":"Aveia com marmelo","description":"Aveia com marmelo cozido","kcal":430,"protein_pct":27,"carb_pct":53,"fat_pct":20,"key_nutrients":"Fibras;Vit C;Potássio"},
+{"season":"Outono","day":"3","meal_time":"almoco","name":"Frango com castanha","description":"Frango com castanha e beterraba","kcal":430,"protein_pct":36,"carb_pct":34,"fat_pct":30,"key_nutrients":"Manganês;Vit B6;Fibras"},
+{"season":"Outono","day":"3","meal_time":"jantar","name":"Abóbora e ovo","description":"Abóbora com ovo escalfado","kcal":420,"protein_pct":27,"carb_pct":35,"fat_pct":38,"key_nutrients":"Betacaroteno;Vit D;Cobre"},
+{"season":"Outono","day":"3","meal_time":"ceia","name":"Queijo fresco e noz","description":"Queijo fresco magro com noz","kcal":420,"protein_pct":28,"carb_pct":18,"fat_pct":54,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Outono","day":"4","meal_time":"pequeno-almoco","name":"Omelete de cogumelos","description":"Omelete com cogumelos","kcal":430,"protein_pct":40,"carb_pct":15,"fat_pct":45,"key_nutrients":"Vit D;Selénio;Colina"},
+{"season":"Outono","day":"4","meal_time":"almoco","name":"Choco grelhado","description":"Choco com batata-doce","kcal":430,"protein_pct":38,"carb_pct":32,"fat_pct":30,"key_nutrients":"Vit B12;Potássio;Ferro"},
+{"season":"Outono","day":"4","meal_time":"jantar","name":"Beterraba assada","description":"Beterraba no forno com azeite","kcal":420,"protein_pct":12,"carb_pct":52,"fat_pct":36,"key_nutrients":"Fibras;Folatos;Manganês"},
+{"season":"Outono","day":"4","meal_time":"ceia","name":"Uva tardia e amêndoa","description":"Uvas tardias com amêndoas","kcal":420,"protein_pct":10,"carb_pct":60,"fat_pct":30,"key_nutrients":"Resveratrol;Vit E;Fibras"},
+{"season":"Outono","day":"5","meal_time":"pequeno-almoco","name":"Aveia com pear","description":"Aveia integral com pera rocha","kcal":430,"protein_pct":26,"carb_pct":54,"fat_pct":20,"key_nutrients":"Fibras;Vit C;Potássio"},
+{"season":"Outono","day":"5","meal_time":"almoco","name":"Carne de porco magra","description":"Porco magro com abóbora","kcal":430,"protein_pct":36,"carb_pct":30,"fat_pct":34,"key_nutrients":"Vit B1;Ferro;Fibras"},
+{"season":"Outono","day":"5","meal_time":"jantar","name":"Cogumelos salteados","description":"Cogumelos salteados com alho","kcal":420,"protein_pct":20,"carb_pct":38,"fat_pct":42,"key_nutrients":"Selénio;Vit B3;Cobre"},
+{"season":"Outono","day":"5","meal_time":"ceia","name":"Iogurte e sementes","description":"Iogurte natural com sésamo","kcal":420,"protein_pct":25,"carb_pct":24,"fat_pct":51,"key_nutrients":"Cálcio;Zinco;Vit B2"},
+{"season":"Outono","day":"6","meal_time":"pequeno-almoco","name":"Panqueca integral","description":"Panqueca de milho com ovo","kcal":430,"protein_pct":34,"carb_pct":40,"fat_pct":26,"key_nutrients":"Vit B3;Fibras;Ferro"},
+{"season":"Outono","day":"6","meal_time":"almoco","name":"Peixe-espada e beterraba","description":"Peixe-espada com beterraba assada","kcal":430,"protein_pct":37,"carb_pct":28,"fat_pct":35,"key_nutrients":"Vit D;Iodo;Ferro"},
+{"season":"Outono","day":"6","meal_time":"jantar","name":"Sopa de abóbora","description":"Abóbora com especiarias","kcal":420,"protein_pct":17,"carb_pct":48,"fat_pct":35,"key_nutrients":"Betacaroteno;Vit C;Manganês"},
+{"season":"Outono","day":"6","meal_time":"ceia","name":"Pera e noz","description":"Pera com noz","kcal":420,"protein_pct":10,"carb_pct":55,"fat_pct":35,"key_nutrients":"Fibras;Vit C;Magnésio"},
+{"season":"Outono","day":"7","meal_time":"pequeno-almoco","name":"Ovos e cogumelos","description":"Ovos com cogumelos","kcal":430,"protein_pct":41,"carb_pct":15,"fat_pct":44,"key_nutrients":"Colina;Vit D;Selénio"},
+{"season":"Outono","day":"7","meal_time":"almoco","name":"Polvo com batata-doce","description":"Polvo grelhado com batata-doce","kcal":430,"protein_pct":38,"carb_pct":33,"fat_pct":29,"key_nutrients":"Vit B12;Ferro;Potássio"},
+{"season":"Outono","day":"7","meal_time":"jantar","name":"Sopa cítrica de abóbora","description":"Abóbora com limão e curcuma","kcal":420,"protein_pct":17,"carb_pct":48,"fat_pct":35,"key_nutrients":"Vit C;Betacaroteno;Cobre"},
+{"season":"Outono","day":"7","meal_time":"ceia","name":"Iogurte com amêndoas","description":"Iogurte e amêndoas","kcal":420,"protein_pct":26,"carb_pct":22,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+
+{"season":"Inverno","day":"1","meal_time":"pequeno-almoco","name":"Aveia cítrica","description":"Aveia com laranja e linhaça","kcal":430,"protein_pct":27,"carb_pct":53,"fat_pct":20,"key_nutrients":"Vit C;Fibras;ALA"},
+{"season":"Inverno","day":"1","meal_time":"almoco","name":"Bacalhau cozido","description":"Bacalhau com cenoura e alho-francês","kcal":430,"protein_pct":38,"carb_pct":28,"fat_pct":34,"key_nutrients":"Iodo;Vit D;Selénio"},
+{"season":"Inverno","day":"1","meal_time":"jantar","name":"Sopa de cenoura","description":"Cenoura com curcuma","kcal":420,"protein_pct":16,"carb_pct":52,"fat_pct":32,"key_nutrients":"Vit C;Betacaroteno;Cobre"},
+{"season":"Inverno","day":"1","meal_time":"ceia","name":"Iogurte e frutos secos","description":"Iogurte natural com noz","kcal":420,"protein_pct":28,"carb_pct":20,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Inverno","day":"2","meal_time":"pequeno-almoco","name":"Ovos e alho-francês","description":"Ovos mexidos com alho-francês","kcal":430,"protein_pct":42,"carb_pct":12,"fat_pct":46,"key_nutrients":"Vit D;Colina;Selénio"},
+{"season":"Inverno","day":"2","meal_time":"almoco","name":"Pescada ao vapor","description":"Pescada com cenoura e limão","kcal":430,"protein_pct":37,"carb_pct":30,"fat_pct":33,"key_nutrients":"Vit B6;Iodo;Vit C"},
+{"season":"Inverno","day":"2","meal_time":"jantar","name":"Sopa cítrica","description":"Sopa leve de cenoura com laranja","kcal":420,"protein_pct":16,"carb_pct":52,"fat_pct":32,"key_nutrients":"Vit C;Betacaroteno;Manganês"},
+{"season":"Inverno","day":"2","meal_time":"ceia","name":"Pera e sementes","description":"Pera com linhaça","kcal":420,"protein_pct":9,"carb_pct":63,"fat_pct":28,"key_nutrients":"Fibras;ALA;Vit C"},
+{"season":"Inverno","day":"3","meal_time":"pequeno-almoco","name":"Aveia com kiwi","description":"Aveia com kiwi e chia","kcal":430,"protein_pct":26,"carb_pct":54,"fat_pct":20,"key_nutrients":"Vit C;Fibras;Magnésio"},
+{"season":"Inverno","day":"3","meal_time":"almoco","name":"Peito de frango","description":"Frango com alho-francês e cenoura","kcal":430,"protein_pct":39,"carb_pct":30,"fat_pct":31,"key_nutrients":"Vit B6;Fibras;Selénio"},
+{"season":"Inverno","day":"3","meal_time":"jantar","name":"Cogumelos salteados","description":"Cogumelos com alho","kcal":420,"protein_pct":20,"carb_pct":38,"fat_pct":42,"key_nutrients":"Selénio;Vit B3;Cobre"},
+{"season":"Inverno","day":"3","meal_time":"ceia","name":"Iogurte com amêndoas","description":"Iogurte e amêndoas","kcal":420,"protein_pct":26,"carb_pct":22,"fat_pct":52,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Inverno","day":"4","meal_time":"pequeno-almoco","name":"Ovos e limão","description":"Ovos cozidos com limão","kcal":430,"protein_pct":44,"carb_pct":6,"fat_pct":50,"key_nutrients":"Colina;Vit D;Vit C"},
+{"season":"Inverno","day":"4","meal_time":"almoco","name":"Salmão grelhado","description":"Salmão com alho-francês","kcal":430,"protein_pct":40,"carb_pct":18,"fat_pct":42,"key_nutrients":"Ómega-3;Vit D;Iodo"},
+{"season":"Inverno","day":"4","meal_time":"jantar","name":"Sopa de abóbora","description":"Abóbora com curcuma","kcal":420,"protein_pct":18,"carb_pct":48,"fat_pct":34,"key_nutrients":"Betacaroteno;Vit C;Manganês"},
+{"season":"Inverno","day":"4","meal_time":"ceia","name":"Maçã e sementes","description":"Maçã com sésamo","kcal":420,"protein_pct":10,"carb_pct":58,"fat_pct":32,"key_nutrients":"Fibras;Cálcio;Vit C"},
+{"season":"Inverno","day":"5","meal_time":"pequeno-almoco","name":"Aveia com laranja","description":"Aveia integral com laranja","kcal":430,"protein_pct":27,"carb_pct":53,"fat_pct":20,"key_nutrients":"Vit C;Fibras;Magnésio"},
+{"season":"Inverno","day":"5","meal_time":"almoco","name":"Cavala grelhada","description":"Cavala com cenoura","kcal":430,"protein_pct":39,"carb_pct":26,"fat_pct":35,"key_nutrients":"Ómega-3;Vit B12;Selénio"},
+{"season":"Inverno","day":"5","meal_time":"jantar","name":"Creme de alho-francês","description":"Alho-francês com azeite e especiarias","kcal":420,"protein_pct":18,"carb_pct":45,"fat_pct":37,"key_nutrients":"Vit K;Fibras;Vit C"},
+{"season":"Inverno","day":"5","meal_time":"ceia","name":"Iogurte com avelãs","description":"Iogurte e avelãs","kcal":420,"protein_pct":27,"carb_pct":22,"fat_pct":51,"key_nutrients":"Cálcio;Magnésio;Vit B2"},
+{"season":"Inverno","day":"6","meal_time":"pequeno-almoco","name":"Panqueca de milho","description":"Panqueca de milho com ovo","kcal":430,"protein_pct":34,"carb_pct":40,"fat_pct":26,"key_nutrients":"Vit B3;Fibras;Cálcio"},
+{"season":"Inverno","day":"6","meal_time":"almoco","name":"Bacalhau no forno","description":"Bacalhau com alho-francês","kcal":430,"protein_pct":38,"carb_pct":28,"fat_pct":34,"key_nutrients":"Vit D;Iodo;Selénio"},
+{"season":"Inverno","day":"6","meal_time":"jantar","name":"Sopa cítrica de cenoura","description":"Cenoura com limão","kcal":420,"protein_pct":16,"carb_pct":52,"fat_pct":32,"key_nutrients":"Vit C;Betacaroteno;Cobre"},
+{"season":"Inverno","day":"6","meal_time":"ceia","name":"Pera e noz","description":"Pera com noz","kcal":420,"protein_pct":10,"carb_pct":55,"fat_pct":35,"key_nutrients":"Fibras;Vit C;Magnésio"},
+{"season":"Inverno","day":"7","meal_time":"pequeno-almoco","name":"Ovos e cogumelos","description":"Ovos com cogumelos","kcal":430,"protein_pct":42,"carb_pct":12,"fat_pct":46,"key_nutrients":"Vit D;Selénio;Colina"},
+{"season":"Inverno","day":"7","meal_time":"almoco","name":"Pescada grelhada","description":"Pescada com cenoura","kcal":430,"protein_pct":37,"carb_pct":30,"fat_pct":33,"key_nutrients":"Vit B6;Iodo;Vit C"},
+{"season":"Inverno","day":"7","meal_time":"jantar","name":"Creme de abóbora","description":"Abóbora com açafrão","kcal":420,"protein_pct":18,"carb_pct":48,"fat_pct":34,"key_nutrients":"Betacaroteno;Vit C;Manganês"},
+{"season":"Inverno","day":"7","meal_time":"ceia","name":"Iogurte e frutos secos","description":"Iogurte com noz","kcal":420,"protein_pct":28,"carb_pct":20,"fat_pct":52,"key_nutrients":"Cálcio;Vit B2;Magnésio"}
+    ];
+
+    // Helpers
+    const cardsEl = document.getElementById('cards');
+    const tableBody = document.querySelector('#resultsTable tbody');
+    const searchInput = document.getElementById('search');
+    const seasonFilter = document.getElementById('seasonFilter');
+    const mealFilter = document.getElementById('mealFilter');
+    const toggleBtn = document.getElementById('toggleView');
+    const cardsView = document.getElementById('cards');
+    const tableView = document.getElementById('table');
+    const downloadBtn = document.getElementById('download');
+
+    function renderCard(meal){
+      const div = document.createElement('div');
+      div.className='card';
+      div.innerHTML = `
+        <div class="meta"><div>${meal.season} · Dia ${meal.day}</div><div>${meal.kcal} kcal</div></div>
+        <div class="title">${meal.name}</div>
+        <div class="desc">${meal.description}</div>
+        <div class="chips"><span class="chip">${meal.meal_time}</span><span class="chip">Proteína ${meal.protein_pct}%</span><span class="chip">Carb ${meal.carb_pct}%</span><span class="chip">Gord ${meal.fat_pct}%</span></div>
+        <div class="macros">
+          <div style="width:120px;font-size:12px;color:var(--muted)">Macros visual</div>
+          <div class="bar"><i class="p" style="width:${meal.protein_pct}%"></i></div>
+          <div class="bar"><i class="c" style="width:${meal.carb_pct}%"></i></div>
+          <div class="bar"><i class="f" style="width:${meal.fat_pct}%"></i></div>
+        </div>
+        <div style="font-size:13px;color:var(--muted)">Principais: ${meal.key_nutrients}</div>
+      `;
+      return div;
+    }
+
+    function renderTableRow(meal){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${meal.season}</td><td>${meal.day}</td><td>${meal.meal_time}</td><td>${meal.name}</td><td>${meal.description}</td><td>${meal.kcal}</td><td>${meal.protein_pct}%</td><td>${meal.carb_pct}%</td><td>${meal.fat_pct}%</td><td>${meal.key_nutrients}</td>`;
+      return tr;
+    }
+
+    function matchesFilter(meal, q, season, mealTime){
+      const text = `${meal.name} ${meal.description} ${meal.key_nutrients} ${meal.season}`.toLowerCase();
+      if(q && !text.includes(q)) return false;
+      if(season && meal.season !== season) return false;
+      if(mealTime && meal.meal_time !== mealTime) return false;
+      return true;
+    }
+
+    function refresh(){
+      const q = searchInput.value.trim().toLowerCase();
+      const season = seasonFilter.value;
+      const mealTime = mealFilter.value;
+      cardsEl.innerHTML='';
+      tableBody.innerHTML='';
+      const filtered = MEALS.filter(m=>matchesFilter(m,q,season,mealTime));
+      if(cardsView.classList.contains('hidden')){
+        // table visible
+        filtered.forEach(m=>tableBody.appendChild(renderTableRow(m)));
+      } else {
+        filtered.forEach(m=>cardsEl.appendChild(renderCard(m)));
+      }
+    }
+
+    // Initial render
+    refresh();
+
+    // Events
+    searchInput.addEventListener('input',refresh);
+    seasonFilter.addEventListener('change',refresh);
+    mealFilter.addEventListener('change',refresh);
+    toggleBtn.addEventListener('click',()=>{
+      const showingTable = !tableView.classList.contains('hidden');
+      if(showingTable){
+        tableView.classList.add('hidden');
+        cardsView.classList.remove('hidden');
+        toggleBtn.textContent='Alternar Vista Tabela/Cartões';
+      } else {
+        tableView.classList.remove('hidden');
+        cardsView.classList.add('hidden');
+        toggleBtn.textContent='Alternar Vista Cartões/Tabela';
+      }
+      refresh();
+    });
+
+    function toCSV(rows){
+      const header = ['season','day','meal_time','name','description','kcal','protein_pct','carb_pct','fat_pct','key_nutrients'];
+      const lines = [header.join(',')];
+      rows.forEach(r=>{
+        const vals = header.map(h=>{
+          const v = (r[h] === undefined || r[h] === null) ? '' : String(r[h]);
+          if(v.includes(',')||v.includes('\n')||v.includes('"')) return '"'+v.replace(/"/g,'""')+'"';
+          return v;
+        });
+        lines.push(vals.join(','));
+      });
+      return lines.join('\n');
+    }
+
+    downloadBtn.addEventListener('click',()=>{
+      const q = searchInput.value.trim().toLowerCase();
+      const season = seasonFilter.value;
+      const mealTime = mealFilter.value;
+      const filtered = MEALS.filter(m=>matchesFilter(m,q,season,mealTime));
+      const csv = toCSV(filtered);
+      const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'meal_plan_filtered.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
