@@ -10,22 +10,33 @@
         <button class="color-mode" id="sun"></button>
 
         <h1>TODO</h1>
+        <hr>
 
-        <h3>Today's list</h3>
+        <section>
+            <h3>Today's list</h3>
 
-        <div class="list" id="task-list">
-            <div class="task">
-                <button class="check checked" name="-1"></button>
-                <p id="-1" class="text-checked">Task done</p>
+            <div class="list" id="task-list">
+                <div class="task">
+                    <button class="check checked" name="-1"></button>
+                    <p id="-1" class="text-checked">Task done</p>
+                </div>
+                <div class="task">
+                    <button class="check no-check" name="0"></button>
+                    <p id="0" class="text-no-check">Add new Task</p>
+                </div>
             </div>
-            <div class="task">
-                <button class="check no-check" name="0"></button>
-                <p id="0" class="text-no-check">Add new Task</p>
-            </div>
-        </div>
 
-        <br>
-        <p>You can do it :)</p>
+            <br>
+            <p>You can do it :)</p>
+        </section>
+
+        <hr/>
+
+        <section class="last-section">
+            <p>Undecided with what to do next?</p>
+            <button id="select-rand-task"> Select random </button>
+            <p id="selected-task"></p>
+        </section>
 
         <footer>
             <form action="POST" id="form-new-task">

@@ -38,6 +38,31 @@
 				aspect-ratio: 1.4;
 				margin-bottom: 1rem;
 			}
+			.website{
+				width: 32%;
+				aspect-ratio: 1.4;
+				margin-bottom: 1rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.website embed{
+				width: 100%;
+				border-radius: 10%;
+			}
+			.visit{
+				width: fit-content;
+				background-color: #52910a;
+				color: #ffffff;
+				padding: 0.6rem 1rem;
+				border-radius: 1em;
+				text-decoration: none;
+				font-weight: bold;
+			}
+			.visit:hover{
+				transform: scale(1.2);
+				text-decoration: none;
+			}
 			nav{
 				display: flex;
 				flex-direction: column;
@@ -59,8 +84,10 @@
 	<body>
 		<header>
 			<div>
+				<hr>
 				<h1>Leonor Medeiros</h1>
 				<p>Welcome, this is a collection of websites I have created.</p>
+				<hr>
 			</div>
 			<!--button>Go to random</button-->
 		</header>
@@ -103,6 +130,7 @@
 		</nav-->
 
 		<section>
+			
 			<embed src="./Advent/index.html" type="text/html">
 			<embed src="./Blog/index.html" type="text/html">
 			<embed src="./ColorPicker/preview.html" type="text/html">
@@ -120,8 +148,12 @@
 			<!--embed src="./Savings/index.html" type="text/html"--> 
 			<embed src="./SeedLoopExchange/index.html" type="text/html"> 
 			<embed src="./Software/index.html" type="text/html"> 
-			<embed src="./StandartWebsite/index.html" type="text/html"> 
-			<embed src="./Todo/index.html" type="text/html"> 
+			<!--embed src="./StandartWebsite/index.html" type="text/html"--> 
+			
+			<div class="website">
+				<embed src="./Todo/index.html" type="text/html"> 
+				<a class="visit" href="./Todo/index.html"> Go visit </a>
+			</div>
 		</section>
 		
 		

@@ -3,7 +3,7 @@
 const colorMode = document.querySelector(".color-mode");
 
 // [0:background, 1:color, 2:check 3:footer 4:addBtn]
-const sunColors = ["rgb(112, 155, 50)", "rgb(166, 179, 16)", "rgb(220, 184, 91)", "rgb(222, 88, 126)", "rgb(194, 236, 239)"];
+const sunColors = ["rgb(166, 179, 16)", "#fff", "rgba(237, 176, 7, 1)", "rgba(193, 54, 94, 1)", "rgb(194, 236, 239)"];
 const moonColors = ["rgb(44, 70, 62)", "rgb(102, 189, 195)", "rgb(221, 103, 80)", "rgb(23, 58, 145)", "rgb(174, 72, 196)"];
 const redColors = ["rgb(215, 97, 64)", "rgb(209, 70, 48)", "rgb(178, 151, 90)", "rgb(85, 62, 33)", "rgb(132, 50, 45)"];
 const blueColors = ["rgb(5, 193, 234)", "rgb(74, 57, 131)", "rgb(89, 201, 40)", "rgb(2, 83, 122)", "rgb(8, 37, 228)"];
@@ -125,3 +125,43 @@ form.addEventListener('submit', (e) =>
 
     inNewTask.value = "";
 })    
+
+
+// Select Random Task to do
+// --------------------------------------------------------------------
+
+let btnRand = document.getElementById("select-rand-task");
+let pRand = document.getElementById("selected-task");
+
+
+btnRand.addEventListener('click', () => {
+    let notDoneTasks = document.querySelectorAll('.text-no-check');
+    pRand.innerHTML = 'You have <b>' + notDoneTasks.length + '</b>' + (notDoneTasks.length > 1 ? ' tasks' : ' task') + ' to do!';
+    pRand.innerHTML += '<br> Maybe start with: <br>'
+    pRand.innerHTML += '<b>' + notDoneTasks.item(Math.floor(Math.random() * notDoneTasks.length)).innerHTML + '</b>';
+    
+    /* // Show all tasks
+    notDoneTasks.forEach( task => {
+        pRand.innerHTML += task.innerHTML;
+    });
+    */
+});  
+
+
+
+/*
+
+
+
+<div class="list" id="task-list">
+            <div class="task">
+                <button class="check checked" name="-1"></button>
+                <p id="-1" class="text-checked">Task done</p>
+            </div>
+            <div class="task">
+                <button class="check no-check" name="0"></button>
+                <p id="0" class="text-no-check">Add new Task</p>
+            </div>
+        </div>
+
+*/
