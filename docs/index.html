@@ -12,6 +12,7 @@
 		<style>
 			:root{
 				--d-green:#1c2318;
+				--green: #52910a;
 				--l-green: #eef2e9;
 			}
 			body{
@@ -39,7 +40,7 @@
 				margin-bottom: 1rem;
 			}
 			.website{
-				width: 32%;
+				width: 45%;
 				aspect-ratio: 1.4;
 				margin-bottom: 1rem;
 				display: flex;
@@ -52,7 +53,7 @@
 			}
 			.visit{
 				width: fit-content;
-				background-color: #52910a;
+				background-color: var(--green);
 				color: #ffffff;
 				padding: 0.6rem 1rem;
 				border-radius: 1em;
@@ -131,9 +132,20 @@
 
 		<section>
 			
-			<embed src="./Advent/index.html" type="text/html">
-			<embed src="./Blog/index.html" type="text/html">
-			<embed src="./ColorPicker/preview.html" type="text/html">
+			<div class="website">
+				<embed src="./Advent/index.html" type="text/html">
+				<a class="visit" href="./Advent/index.html"> Go visit </a>
+			</div>
+			
+			<div class="website">
+				<embed src="./Blog/index.html" type="text/html">
+				<a class="visit" href="./Blog/index.html"> Go visit </a>
+			</div>
+
+			<div class="website">
+				<embed src="./ColorPicker/preview.html" type="text/html">
+				<a class="visit" href="./ColorPicker/preview.html"> Go visit </a>
+			</div>
 			<embed src="./Gallery/index.html" type="text/html">
 			<embed src="./LEANOR_fashion/index.html" type="text/html"> 
 			<embed src="./Library/index.html" type="text/html"> 
@@ -159,7 +171,7 @@
 		
 		<footer style="margin-top:5%;">
 			<img src="./Porfolio/assets/images/logo.png" alt="LM logo" width="5%">
-			&copy 2023-2025 Leonor Medeiros. All rights reserved.
+			&copy 2023-2026 Leonor Medeiros. All rights reserved.
 		</footer>
 	</body>
 </html>
