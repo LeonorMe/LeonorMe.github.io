@@ -29,19 +29,23 @@
 
             <section class="search">
                 <div class="search-bar">
-                    <div id="select">
-                        <p id="selectText">All topics</p>
-                        <!--img src="arrow.png" alt="" srcset=""-->
-                        <p>v</p>
-                        <ul id="list">
-                            <li class="options">All topics</li>
-                            <li class="options">Topic1</li>
-                            <li class="options">Topic2</li>
-                        </ul>
-                    </div>
-                    <input type="search" placeholder="Search in all topics" name="search-in" id="search-in">
+
+                    <button id="select" type="button">
+                    <span id="selectText">All topics</span>
+                    <span class="arrow">▾</span>
+                    </button>
+
+                    <ul id="list">
+                    <li class="option">All topics</li>
+                    <li class="option">Sewing</li>
+                    <li class="option">Painting</li>
+                    </ul>
+
+                    <input type="search" placeholder="Search in all topics" id="search-in">
+
                 </div>
             </section>
+
             
             <section class="posts">
 
@@ -56,6 +60,37 @@
             //getAllPosts();
             getTopicPosts();
             search();
+        </script>
+
+        
+        <script>
+        const select=document.getElementById("select");
+        const list=document.getElementById("list");
+        const text=document.getElementById("selectText");
+        const input=document.getElementById("search-in");
+
+        select.onclick=()=>list.classList.toggle("show");
+
+        document.querySelectorAll(".option").forEach(opt=> {
+                opt.onclick=()=> {
+                    text.textContent=opt.textContent;
+
+                    input.placeholder=`Search in $ {
+                        opt.textContent
+                    }
+
+                    `;
+                    list.classList.remove("show");
+                }
+
+                ;
+            });
+
+        document.addEventListener("click", e=> {
+                if ( !select.contains(e.target) && !list.contains(e.target)) {
+                    list.classList.remove("show");
+                }
+            });
         </script>
     </body>
 </html>

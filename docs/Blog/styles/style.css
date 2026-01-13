@@ -13,6 +13,10 @@
 /*@import url(error.css);*/
 /*@import url(animations.css);*/
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=M+PLUS+2:wght@100..900&display=swap');
+
+
+
 :root{
     --debug: #4cea13;
 
@@ -20,13 +24,28 @@
     --brown: #694c30;
     --green: #6d8203;
     --beje: #f4e2d2;
-    --white: #fdf7f2;
+    /*--white: #fdf7f2;*
+
+    /* new */
+    --white: #f9f6f4;
+    --light-neutral: #f8f5ed;
+    --dark-neutral: #655742;
+    --primary-color: #6C8052;
+    --secondary-color: #9fb87c;
+    --accent-color: #be9e35;
+
+    --ff-logo: "Lora", serif;
+    --ff-accent: "Lora", serif;
+    --ff-main: "M PLUS 2", sans-serif;
+    /* --font-fam: 'Lato', sans-serif; */
+
+    /* new (end) */
     
-    --background: var(--white); 
-    --primary: var(--beje);
-    --secondary: var(--brown);
-    --accent: var(--green);
-    --surface: var(--black);
+    --background: var(--light-neutral); 
+    --primary: var(--white);
+    --secondary: var(--secondary-color);
+    --accent: var(--accent-color);
+    --surface: var(--dark-neutral);
     --shadow: #694c3046;
     
     --radius: 12px;
@@ -41,9 +60,12 @@
     --f-xxxlarge: 2rem;
     --f-logo: 2.2rem;
 
+    /*
     --ff-logo: serif;
     --ff-accent: serif;
     --ff-main: sans-serif;
+    */
+
 }
 
 /* -- Zones --- */
@@ -52,7 +74,7 @@ body{
     background-color: var(--background);
     font-family: var(--ff-main);
     color: var(--surface);
-    margin: 0 15vw;
+    margin: 0 0vw;
 }
 
 
@@ -62,6 +84,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 3vh;
+    margin: 0 10vw;
 }
 
 section{
@@ -180,3 +203,78 @@ a:active {
     color: var(--primary);
     text-decoration: line-through;
 }
+
+/* search thing in blog*/
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    width: 22rem;
+    height: 3rem;
+    background: #6f8f4f;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+/* Dropdown button */
+#select {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    padding: 0 1rem;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Search input */
+#search-in {
+    flex: 1;
+    border: none;
+    background: #f6f6f6;
+    border-radius: 999px;
+    padding: 0 1rem;
+    outline: none;
+}
+
+/* Dropdown list */
+#list {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 9rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+    list-style: none;
+    padding: .4rem 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: .25s ease;
+}
+
+#list.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.option {
+    padding: .6rem 1rem;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #5fd37c;
+    color: white;
+}
+
+

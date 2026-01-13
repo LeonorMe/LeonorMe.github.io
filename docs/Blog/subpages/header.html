@@ -2,7 +2,14 @@
 <div class="header-right">
     <nav>
         <a href="blog.html">Blog</a>
-        <a href="contact.html">About & Contact</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+        <form onsubmit="event.preventDefault();" role="search">
+            <label for="search">Search for stuff</label>
+            <input id="search" type="search" placeholder="Search..." autofocus required />
+            <button type="submit">Go</button>    
+        </form>
     </nav>
 </div>
 
