@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Trip</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <h1>Cálculo do custo de uma viagem de carro</h1>
+        <hr>
+
+        <section>
+            <form action="" method="post" id="form-calcular">
+
+                <label for="consumo-medio">Consumo médio na viagem L por 100 km:</label>
+                <input type="number" name="consumo-medio" id="consumo-medio" placeholder="5,6" step="0.1">
+                
+                <br>
+                <label for="preco-combustivel">Preço do combustível €/L:</label>
+                <input type="number" name="preco-combustivel" id="preco-combustivel" placeholder="1,60" step="0.01">
+
+                <label for="km">Km percorridos na viagem:</label>
+                <input type="number" name="km" id="km" placeholder="96,5" step="0.1">
+
+                <label for="extra">Extras como portagens de auto estradas €:</label>
+                <input type="number" name="extra" id="extra" placeholder="3,4" step="0.01">
+
+                <label for="pessoas">Número de passoas na viatura:</label>
+                <input type="number" name="pessoas" id="pessoas" placeholder="1" step="1">
+
+                <input type="submit" value="Calcular" id="calcular" class="button">
+            </form>
+        </section>
+
+        <hr>
+        <div id="custo-total">ex: 12.05 €</div>
+
+
+        <div class="footer-logo-fixed">
+            <a href="../index.html">
+                <img src="../logo.png" alt="LM-logo">
+            </a>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
